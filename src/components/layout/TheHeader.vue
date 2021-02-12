@@ -17,7 +17,7 @@
             <strong>Login </strong>
           </router-link>
 
-           <router-link class="button is-primary" :to="{path:'/register'}">
+           <router-link class="button" :to="{path:'/register'}">
             <strong>Register </strong>
           </router-link>
 
