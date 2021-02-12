@@ -25,5 +25,12 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 @Component({})
-export default class Home extends Vue {}
+export default class Home extends Vue {
+  /**
+   * Create method
+   */
+  created () {
+    console.log(this.$route.query)
+  }
+}
 </script>
