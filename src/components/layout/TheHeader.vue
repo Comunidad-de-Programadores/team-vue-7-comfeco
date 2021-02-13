@@ -13,11 +13,11 @@
     <template #end>
       <b-navbar-item tag="div">
         <div class="buttons">
-          <router-link class="button is-primary" :to="{path:'/login'}">
+          <router-link class="button is-primary" :to="{path:'/auth/login'}">
             <strong>Login </strong>
           </router-link>
 
-           <router-link class="button" :to="{path:'/register'}">
+           <router-link class="button" :to="{path:'auth/register'}">
             <strong>Register </strong>
           </router-link>
 
