@@ -1,41 +1,44 @@
-import { firebaseAuth } from "@/firebase/firebaseapp";
-
+import { firebaseAuth } from '@/firebase/firebaseapp'
 
 export class Auth {
-
   /**
    * Log in a user
-   * @param data 
+   * @param data
    */
-  login(data:AuthRequest){
-
+  login (data: AuthRequest) {
+    console.log(data)
   }
-   /**
+
+  /**
    * Register a user to firebase
-   * @param data 
+   * @param data
    */
-  register(data:AuthRequest){
-
+  register (data: AuthRequest) {
+    console.log(data)
   }
+
   /**
    * Sen email to reset password
-   * @param data 
+   * @param data
    */
-  forgotPassword(data:AuthRequest){
-    
+  forgotPassword (data: AuthRequest) {
+    console.log(data)
   }
+
   /**
    * Reset user password
-   * @param data 
+   * @param data
    */
-  resetPasssword(data:AuthRequest){
-
+  resetPasssword (data: AuthRequest) {
+    console.log(data)
   }
 
   /**
    * Returns curren user
    */
-  getCurrentUser(){
-    firebaseAuth.currentUser
+  getCurrentUser () {
+    return firebaseAuth.currentUser
   }
 }
+
+export default new Auth()
