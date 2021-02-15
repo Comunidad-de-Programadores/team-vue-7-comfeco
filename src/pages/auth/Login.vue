@@ -15,11 +15,16 @@
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
 import Auth from '@/auth/auth.ts'
-@Component
+@Component(
+  {
+    components: 
+  }
+)
 export default class Login extends Vue {
   created () {
     console.log(Auth.getCurrentUser())
   }
+  
 }
 </script>
 <style lang=""></style>

@@ -4,7 +4,9 @@
   </div>
 </template>
 <script>
-export default {
+import Auth from '@/auth/auth.ts'
+
+export default class ForgotPassword extends Vue {
 
 }
 </script>
