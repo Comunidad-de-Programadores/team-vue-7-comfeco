@@ -14,7 +14,8 @@ export class Auth {
    * @param data
    */
   register (data: AuthRequest) {
-    console.log(data)
+    console.log(data) 
+    const t="pepe"
   }
 
   /**
