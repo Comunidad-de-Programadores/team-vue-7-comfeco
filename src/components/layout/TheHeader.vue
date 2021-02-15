@@ -1,27 +1,29 @@
 <template lang="html">
-  <b-navbar :fixed-top="true" >
-      <template #brand>
-        <b-navbar-item
-          class="is-size-4 has-text-link has-text-weight-bold"
-          tag="router-link"
-          :to="{ path: '/' }"
-        >
-          Eventer
-        </b-navbar-item>
-      </template>
+  <b-navbar :fixed-top="true">
+    <template #brand>
+      <b-navbar-item
+        class="is-size-4 has-text-link has-text-weight-bold"
+        tag="router-link"
+        :to="{ path: '/' }"
+      >
+        Eventer
+      </b-navbar-item>
+    </template>
 
-      <template #end>
-        <b-navbar-item tag="div">
-          <div class="buttons">
-            <a class="button is-primary">
-              <strong>Login </strong>
-            </a>
-            <a class="button is-light">
-              Register
-            </a>
-          </div>
-        </b-navbar-item>
-      </template>
+    <template #end>
+      <b-navbar-item tag="div">
+        <div class="buttons">
+          <router-link class="button is-primary" :to="{path:'/auth/login'}">
+            <strong>Login </strong>
+          </router-link>
+
+           <router-link class="button" :to="{path:'auth/register'}">
+            <strong>Register </strong>
+          </router-link>
+
+        </div>
+      </b-navbar-item>
+    </template>
   </b-navbar>
 </template>
 <script lang="ts">
