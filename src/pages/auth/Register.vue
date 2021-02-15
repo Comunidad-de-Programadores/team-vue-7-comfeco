@@ -14,7 +14,7 @@
                 <b-input
                     placeholder="Nickname"
                     name="nickname"
-                    v-model="formData.nickname"
+                    v-model="formData.nickName"
                     @focus="clearInputs"
                     required
                 >
@@ -57,7 +57,7 @@
                   placeholder="Repeat Password"
                   name="password"
                   type="password"
-                  v-model="formData.password2"
+                  v-model="formData.confirmPassword"
                   @focus="clearInputs"
                   password-reveal
                   required
@@ -79,81 +79,26 @@
 </template>
 
 <script lang="ts">
-// import { firebaseAuth, firebaseApp } from '@/firebase/firebaseapp.ts'
 
 import { Vue, Component } from 'vue-property-decorator'
-// import Auth from '@/auth/auth.ts'
+import Auth from '../../auth/auth'
+import { RegisterRequest } from '@/models/AuthRequest.ts'
 @Component
 export default class Register extends Vue {
-  // data () {
-  // return {
       isDisabled = true
-      formData: {
-        nickname: '';
-        email: 'aaa';
-        password: 'aaa';
-        password2: 'aaa';
+      formData = new RegisterRequest();
+
+      async onSubmit () {
+        try {
+          const response = await Auth.register(this.formData)
+          console.log(response)
+          // show a success message
+        } catch (e) {
+          // show an error message
+          console.error(e)
+        }
       }
-
-      formError: {
-        username: '';
-        email: '';
-        password: '';
-      }
-
-  // }
-  // }
-  // onSubmit (): void {
-  //   this.formData.nickname
-  //   this.isDisabled = true
-  //   this.formError.username = ''
-  //   this.formError.email = ''
-  //   this.formError.password = ''
-  // }
-
-  // createUser (): void {
-  //   Auth().createUserWithEmailAndPassword(this.formData.email, this.formData.password).then(res => {
-  //     console.log(res)
-  //   })
-  //     .catch(err : Error => {
-  //       console.log(err)
-  //     })
-  // }
 }
-//   methods: {
-//     createUser () {
-//       firebase.auth().createUserWithEmailAndPassword(this.formData.email, this.formData.password).then(res => {
-//         console.log(res)
-//       })
-//         .catch(err => {
-//           console.log(err)
-//         })
-//     },
-//     onSubmit () {
-//       createUser()
-//       if (this.isDisabled) return
-//       this.isDisabled = true
-//       this.isLoading = true
-//       this.formError.username = ''
-//       this.formError.email = ''
-//       this.formError.password = ''
-//       this.registerUser(this.formData)
-//     },
-//     clearInputs (e) {
-//       if (e.target && e.target.nodeName === 'INPUT') {
-//         e.target.className = 'input'
-//         this.formError[e.target.name] = ''
-//       }
-//     },
-//     showErrors (errors) {
-//       if (errors && typeof errors === 'object') {
-//         errors.forEach(({ path, message }) => {
-//           this.formError[path] = message
-//         })
-//       }
-//     }
-//   }
-// }
 
 </script>
 

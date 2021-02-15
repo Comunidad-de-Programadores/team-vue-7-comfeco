@@ -4,8 +4,8 @@
   </div>
 </template>
 <script>
-import Auth from '@/auth/auth.ts'
-
+import { Vue, Component } from 'vue-property-decorator'
+@Component
 export default class ForgotPassword extends Vue {
 
 }
