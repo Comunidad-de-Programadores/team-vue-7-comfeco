@@ -1,5 +1,9 @@
 <template lang="lang">
-  <div>
+  <div class="hero is-fullheight-with-navbar">
+    <div class="hero-body">
+<div class="columns justify-center align-center">
+        <div class="form">
+
     <ValidationObserver ref="observer" v-slot="{ handleSubmit }">
        <ValidationProvider rules="required|email" name="Email" v-slot="{ errors, valid }">
         <b-field
@@ -11,6 +15,9 @@
         </b-field>
       </ValidationProvider>
       </ValidationObserver>
+        </div>
+    </div>
+    </div>
   </div>
 </template>
 <script lang="ts">
@@ -20,10 +27,7 @@ import { Vue, Component } from 'vue-property-decorator'
   components: { ValidationProvider, ValidationObserver }
 })
 export default class ForgotPassword extends Vue {
-      email ='';
+  email = '';
 }
-
 </script>
-<style lang="">
-
-</style>
+<style lang=""></style>
