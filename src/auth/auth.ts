@@ -1,4 +1,5 @@
 import { firebaseAuth } from '@/firebase/firebaseapp'
+import { AuthRequest, RegisterRequest } from '@/models/AuthRequest'
 
 export class Auth {
   /**
@@ -13,8 +14,13 @@ export class Auth {
    * Register a user to firebase
    * @param data
    */
-  register (data: AuthRequest) {
-    console.log(data)
+  register (data: RegisterRequest): Promise<RegisterRequest> {
+    return firebaseAuth.createUserWithEmailAndPassword(data.email, data.password).then(() => {
+      // save on firebase sotre
+      return data
+    })
+
+    // register to firebase auth
   }
 
   /**
