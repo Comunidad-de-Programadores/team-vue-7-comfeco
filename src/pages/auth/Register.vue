@@ -88,7 +88,7 @@ export default class Register extends Vue {
       isDisabled = true
       formData = new RegisterRequest();
 
-      async onSubmit () {
+      async onSubmit ():Promise<void> {
         try {
           const response = await Auth.register(this.formData)
           console.log(response)
