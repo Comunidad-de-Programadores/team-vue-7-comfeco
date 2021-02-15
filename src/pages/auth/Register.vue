@@ -87,18 +87,19 @@ import { Vue, Component } from 'vue-property-decorator'
 export default class Register extends Vue {
   // data () {
   // return {
+      count = 2;
       isDisabled = true
-      formData: {
-        nickname: '';
-        email: 'aaa';
-        password: 'aaa';
-        password2: 'aaa';
+      formData = {
+        nickname: '',
+        email: 'aaa',
+        password: 'aaa',
+        password2: 'aaa'
       }
 
-      formError: {
-        username: '';
-        email: '';
-        password: '';
+      formError = {
+        username: '',
+        email: '',
+        password: ''
       }
 
   // }
