@@ -17,8 +17,8 @@ export class Auth {
   register (data: RegisterRequest): Promise<RegisterRequest> {
     return firebaseAuth.createUserWithEmailAndPassword(data.email, data.password).then(() => {
       // save on firebase store
-      return DB.collection('users').doc(data).then(() => {
-        
+      return DB.collection('users').add(data).then(() => {
+        return data
       })
     })
 
