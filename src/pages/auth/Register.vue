@@ -89,17 +89,18 @@ export default class Register extends Vue {
       isDisabled = false
       formData = new RegisterRequest();
       formError = {}
-      success (name): void {
-            this.$buefy.toast.open({
-            message: `Welcome ${name.nickName}}!`,
-            type: 'is-success',
-            })
-          }
-       async onSubmit () {
+
+      success (user:RegisterRequest): void {
+        this.$buefy.toast.open({
+          message: `Welcome ${user.nickName}}!`,
+          type: 'is-success'
+        })
+      }
+
+      async onSubmit ():Promise<void> {
         try {
           const response = await Auth.register(this.formData)
           console.log(response)
-            
         } catch (e) {
           // show an error message
           console.error(e)

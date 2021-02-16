@@ -5,5 +5,5 @@ import firebase from 'firebase'
 export const firebaseApp = firebase.initializeApp(firebaseconfig)
 export const firebaseAuth = firebaseApp.auth()
 export const DB = firebaseApp.firestore()
-export default { firebaseApp , DB}
+export default firebaseApp
 // export default DB
