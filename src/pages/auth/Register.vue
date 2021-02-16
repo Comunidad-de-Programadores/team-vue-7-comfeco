@@ -92,6 +92,7 @@ export default class Register extends Vue {
 
       success (user: RegisterRequest): void {
         this.$buefy.toast.open({
+          duration: 3000,
           message: `Welcome ${user.nickName}}!`,
           type: 'is-success'
         })
@@ -99,9 +100,9 @@ export default class Register extends Vue {
 
       async onSubmit (): Promise<void> {
         try {
-          const response = await Auth.register(this.formData)
-          console.log(response)
-          this.success(response.nickName)
+          const user = await Auth.register(this.formData)
+          console.log(user)
+          this.success(user)
           // Redirect to login
         } catch (e) {
           // show an error message
