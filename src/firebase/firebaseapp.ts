@@ -4,4 +4,6 @@ import firebase from 'firebase'
 // Initialize Firebase
 export const firebaseApp = firebase.initializeApp(firebaseconfig)
 export const firebaseAuth = firebaseApp.auth()
-export default firebaseApp
+export const DB = firebaseApp.firestore()
+export default { firebaseApp , DB}
+// export default DB

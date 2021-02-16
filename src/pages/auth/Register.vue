@@ -1,5 +1,10 @@
 <template lang="html">
    <div class="container main">
+     <b-button
+        label="Launch toast "
+        type="is-success"
+        size="is-medium"
+        @click="success" />
       <section class="section">
         <article class="message">
           <div class="message-header is-info">
@@ -15,7 +20,6 @@
                     placeholder="Nickname"
                     name="nickname"
                     v-model="formData.nickName"
-                    @focus="clearInputs"
                     required
                 >
                 </b-input>
@@ -29,7 +33,6 @@
                   placeholder="E-Mail"
                   name="email"
                   v-model="formData.email"
-                  @focus="clearInputs"
                   required
                 ></b-input>
               </b-field>
@@ -43,7 +46,6 @@
                   name="password"
                   type="password"
                   v-model="formData.password"
-                  @focus="clearInputs"
                   password-reveal
                   required
                 ></b-input>
@@ -58,7 +60,6 @@
                   name="password"
                   type="password"
                   v-model="formData.confirmPassword"
-                  @focus="clearInputs"
                   password-reveal
                   required
                 ></b-input>
@@ -85,14 +86,26 @@ import Auth from '../../auth/auth'
 import { RegisterRequest } from '@/models/AuthRequest.ts'
 @Component
 export default class Register extends Vue {
-      isDisabled = true
+      isDisabled = false
       formData = new RegisterRequest();
-
-      async onSubmit () {
+      formError = {}
+      // success (name): void {
+      //       this.$buefy.toast.open({
+      //       message: `Welcome ${name.nickName}}!`,
+      //       type: 'is-success',
+      //       })
+      //     }
+       async onSubmit () {
         try {
           const response = await Auth.register(this.formData)
           console.log(response)
-          // show a success message
+            // show a success message
+          // success (): void {
+          //   this.$buefy.toast.open({
+          //   message: `Welcome ${response.nickName}}!`,
+          //   type: 'is-success',
+          //   })
+          // }
         } catch (e) {
           // show an error message
           console.error(e)
