@@ -18,7 +18,7 @@
               >
                 <b-input
                     placeholder="Nickname"
-                    name="nickname"
+                    name="nickName"
                     v-model="formData.nickName"
                     required
                 >
@@ -90,17 +90,19 @@ export default class Register extends Vue {
       formData = new RegisterRequest();
       formError = {}
 
-      success (user:RegisterRequest): void {
+      success (user: RegisterRequest): void {
         this.$buefy.toast.open({
           message: `Welcome ${user.nickName}}!`,
           type: 'is-success'
         })
       }
 
-      async onSubmit ():Promise<void> {
+      async onSubmit (): Promise<void> {
         try {
           const response = await Auth.register(this.formData)
           console.log(response)
+          this.success(response.nickName)
+          // Redirect to login
         } catch (e) {
           // show an error message
           console.error(e)
