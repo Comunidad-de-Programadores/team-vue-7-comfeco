@@ -1,0 +1,7 @@
+{
+  "forgot-password":{
+    "title":"Recuperar Contraseña",
+    "subtitle": "Escribe tu email para poder recuperar tu contraseña",
+    "button":"Recuperar Contraseña"
+  }
+}

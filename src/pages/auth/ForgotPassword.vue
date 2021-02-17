@@ -8,7 +8,7 @@
               class="column is-12-mobile is-6-table is-offset-3-table is-offset-4-desktop is-4-desktop"
             >
               <h1 class="title has-text-centered is-spaced">
-                Recuperar Contraseña
+               {{$t('forgot-password.title')}}
               </h1>
               <h3 class="subtitle   has-text-centered has-text-gray">
                 Escribe tu email para poder recuperar tu contraseña
