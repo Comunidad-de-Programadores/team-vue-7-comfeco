@@ -9,28 +9,44 @@
           </div>
           <div class="message-body">
             <form ref="form" @submit.prevent="onSubmit">
-              <!-- <ValidationProvider rules="length:2" name="NickName" v-slot="{ errors, valid }"> -->
-                <b-field>
+              <ValidationObserver ref="observer" v-slot="{ handleSubmit }">
+              <ValidationProvider rules="required" name="Nickname" v-slot="{ errors, valid }">
+                <b-field 
+                  label="Nickname"
+                  :type="{ 'is-danger': errors[0], 'is-success': valid }"
+                  :message="errors"
+                  >
                   <b-input
-                      placeholder="Nickname"
+                      placeholder="Type Nickname"
                       v-model="formData.nickName"
+                      name="Nickname"
                       required
                   >
                   </b-input>
                 </b-field>
-              <!-- </ValidationProvider> -->
-              <b-field>
+              </ValidationProvider>
+              <ValidationProvider rules="required|email" name="Email" v-slot="{ errors, valid }">
+              <b-field 
+              label="Email"
+              :type="{ 'is-danger': errors[0], 'is-success': valid }"
+              :message="errors"
+              >
                 <b-input
-                  placeholder="E-Mail"
-                  name="email"
+                  placeholder="Type E-Mail"
+                  name="Email"
                   v-model="formData.email"
                   required
                 ></b-input>
               </b-field>
-
-              <b-field>
+              </ValidationProvider>
+              <ValidationProvider rules="required" name="Email" v-slot="{ errors, valid }">
+              <b-field
+              label="Password"
+              :type="{ 'is-danger': errors[0], 'is-success': valid }"
+              :message="errors"
+              >
                 <b-input
-                  placeholder="Password"
+                  placeholder="Type Password"
                   name="password"
                   type="password"
                   v-model="formData.password"
@@ -38,8 +54,9 @@
                   required
                 ></b-input>
               </b-field>
-
-              <b-field>
+              </ValidationProvider>
+              <b-field
+              label="Repeat Password">
                 <b-input
                   placeholder="Repeat Password"
                   name="password"
@@ -52,18 +69,26 @@
 
               <b-button
                 class="button is-success"
-                @click.prevent="onSubmit"
+                @click.prevent="handleSubmit(onSubmit)"
                 :loading="isLoading"
               >
                 Register
               </b-button>
+              </ValidationObserver>
             </form>
           </div>
         </article>
       </section>
     </div>
   </div>
-    </div>
+  <div class="container">
+    <p>Already register? 
+      <router-link :to="{ path: './login' }">
+        Sign In
+      </router-link>
+    </p>
+  </div>
+</div>
 
 </template>
 
@@ -78,12 +103,6 @@ import { RegisterRequest } from '@/models/AuthRequest.ts';
 export default class Register extends Vue {
   isLoading = false;
   formData = new RegisterRequest();
-  // formError = {
-  //   nickName: '',
-  //   email: this.formData.email,
-  //   password: this.formData.password <= 8,
-  //   confirmPassword: 'Password does not match '
-  // }
 
   success(user: RegisterRequest): void {
     this.$buefy.toast.open({
