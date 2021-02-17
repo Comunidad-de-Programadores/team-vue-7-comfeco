@@ -6,8 +6,8 @@
   </div>
 </template>
 
-<script>
-import { Vue, Component } from "vue-property-decorator";
+<script lang="ts">
+import { Vue, Component ,Prop } from "vue-property-decorator";
 import TheHeader from "./TheHeader.vue";
 import TheFooter from "./TheFooter.vue";
 
@@ -18,7 +18,7 @@ import TheFooter from "./TheFooter.vue";
   }})
 export default class DefaultLayout extends Vue {
 
-  @Prop 
+  @Prop({type:Boolean,default:false}) readonly hideNavbar :Boolean = false;
 }
 </script>
 
