@@ -1,14 +1,12 @@
 <template lang="html">
   <div class="hero is-fullheight-with-navbar">
-   <div class="columns is-centered">
-     <div class="column is-two-fifths ">
-      <section class="section">
-        <article class="message is-info">
-          <div class="message-header ">
-            <p>Register Form</p>
-          </div>
-          <div class="message-body">
-            <form ref="form" @submit.prevent="onSubmit">
+    <div class="hero-body">
+        <div class="container">
+          <div class="columns is-centered">
+              <div class="column is-12-mobile  is-6-tablet is-4-desktop ">
+                  <h3 class="title has-text-centered">Register Form</h3>
+                  <div class="box">
+<form ref="form" @submit.prevent="onSubmit">
               <ValidationObserver ref="observer" v-slot="{ handleSubmit }">
               <ValidationProvider rules="required" name="Nickname" v-slot="{ errors, valid }">
                 <b-field 
@@ -68,7 +66,9 @@
               </b-field>
 
               <b-button
-                class="button is-success"
+                type="is-primary"
+                size="is-medium"
+                expanded
                 @click.prevent="handleSubmit(onSubmit)"
                 :loading="isLoading"
               >
@@ -76,18 +76,30 @@
               </b-button>
               </ValidationObserver>
             </form>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </div>
+      <!--section class="section">
+        <article class="message is-info">
+          <div class="message-header ">
+            <p>Register Form</p>
+          </div>
+          <div class="message-body">
+            
           </div>
         </article>
-      </section>
+      </section-->
     </div>
   </div>
-  <div class="container">
+  <!--div class="container">
     <p>Already register? 
       <router-link :to="{ path: './login' }">
         Sign In
       </router-link>
     </p>
-  </div>
+  </div!-->
 </div>
 
 </template>
