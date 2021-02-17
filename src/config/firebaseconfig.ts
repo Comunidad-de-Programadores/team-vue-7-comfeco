@@ -1,4 +1,3 @@
-
 export default {
   apiKey: process.env.VUE_APP_API_KEY || 'AIzaSyCe4046E8Kt4eQRFwZhfWb9gZGU5WaMrNc',
   authDomain: process.env.VUE_APP_AUTH_DOMAIN || 'team-vue-7-comfeco.firebaseapp.com',
