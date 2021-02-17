@@ -1,6 +1,6 @@
 <template>
   <div>
-    <TheHeader/>
+    <TheHeader v-if="!hideNavbar"/>
     <slot></slot>
     <TheFooter/>
   </div>

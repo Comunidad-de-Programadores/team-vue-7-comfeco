@@ -22,6 +22,7 @@
                   >
                     <b-field
                       label="Email"
+                      custom-class="is-medium"
                       class="mb-4"
                       :type="{ 'is-danger': errors[0], 'is-success': valid }"
                       :message="errors"
@@ -29,20 +30,30 @@
                       <b-input
                         placeholder="Tu email"
                         type="email"
+                                              size="is-medium"
                         v-model="email"
                       ></b-input>
                     </b-field>
                   </validation-provider>
                   <div class="buttons has-text-centered">
-                    <button
-                      class="button is-fullwidth is-primary"
+                    <!--button
+                      class="button is-medium is-fullwidth is-primary"
                       @click="handleSubmit(submit)"
                     >
                       <span class="icon is-small">
                         <i class="fas fa-check"></i>
                       </span>
                       <span>Recuperar Contraseña</span>
-                    </button>
+                    </button-->
+                    <b-button
+                type="is-primary"
+                expanded
+                size="is-medium"
+                @click="handleSubmit(submit)"
+                :loading="isLoading"
+              >
+                Recuperar Contraseña
+              </b-button>
                   </div>
                 </validation-observer>
               </div>
@@ -71,11 +82,39 @@ import Auth from "@/auth/auth.ts";
 })
 export default class ForgotPassword extends Vue {
   email = "";
+  isLoading:Boolean = false;
+  /**
+   * shows a toast with a message
+   */
+  showMessage(message:{type:string,text:string}={type:'is-success',text:''}){
+    this.$buefy.toast.open({
+      duration: 3000,
+      message: message.text,
+      type: message.type,
+    });
+  }
+
   async submit() {
     try {
+      this.isLoading = true
       await Auth.forgotPassword(this.email);
       console.log("Email send");
-    } catch (error) {
+      this.isLoading = false
+      this.email  = ""
+      this.showMessage(
+        {
+          type: 'is-success',
+          text:'Email enviando exitosamente'
+        }
+      )
+   } catch (error) {
+      this.isLoading = false
+       this.showMessage(
+        {
+          type: 'is-danger',
+          text:'Email no pudo ser enviando'
+        }
+      )
       console.error(error);
     }
   }
