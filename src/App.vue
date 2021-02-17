@@ -1,8 +1,6 @@
 <template>
-  <div>
-    <TheHeader/>
-    <router-view/>
-    <TheFooter/>
+<div>
+      <router-view/>
   </div>
 </template>
 <script lang="ts">

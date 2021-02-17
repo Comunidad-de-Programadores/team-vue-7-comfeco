@@ -100,7 +100,11 @@ export default class Register extends Vue {
         })
       }
 
+<<<<<<< HEAD
       async onSubmit (): Promise<void> {
+=======
+      async onSubmit ():Promise<void> {
+>>>>>>> origin/dev
         try {
           this.isLoading = true
           const user = await Auth.register(this.formData)
