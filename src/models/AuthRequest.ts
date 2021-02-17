@@ -1,5 +1,5 @@
 
-class AuthRequest {
+export class AuthRequest {
   email: string;
   password: string;
   constructor () {
@@ -8,9 +8,10 @@ class AuthRequest {
   }
 }
 
-class RegisterRequest extends AuthRequest {
+export class RegisterRequest extends AuthRequest {
   confirmPassword: string;
   nickName: string;
+
   constructor () {
     super()
     this.nickName = ''

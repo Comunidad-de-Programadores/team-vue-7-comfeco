@@ -1,13 +1,116 @@
-<template lang="">
-  <div>
+<template lang="html">
+   <div class="container main">
+      <section class="section">
+        <article class="message">
+          <div class="message-header is-info">
+            <p>Register Form</p>
+          </div>
+          <div class="message-body">
+            <form ref="form" @submit.prevent="onSubmit">
+              <b-field
+                  :type="formError.username ? 'is-danger': ''"
+                  :message="formError.username"
+              >
+                <b-input
+                    placeholder="Nickname"
+                    name="nickname"
+                    v-model="formData.nickName"
+                    @focus="clearInputs"
+                    required
+                >
+                </b-input>
+              </b-field>
 
-  </div>
+              <b-field
+                :type="formError.email ? 'is-danger': ''"
+                :message="formError.email"
+              >
+                <b-input
+                  placeholder="E-Mail"
+                  name="email"
+                  v-model="formData.email"
+                  @focus="clearInputs"
+                  required
+                ></b-input>
+              </b-field>
+
+              <b-field
+                :type="formError.password ? 'is-danger': ''"
+                :message="formError.password"
+              >
+                <b-input
+                  placeholder="Password"
+                  name="password"
+                  type="password"
+                  v-model="formData.password"
+                  @focus="clearInputs"
+                  password-reveal
+                  required
+                ></b-input>
+              </b-field>
+
+              <b-field
+                :type="formError.password ? 'is-danger': ''"
+                :message="formError.password"
+              >
+                <b-input
+                  placeholder="Repeat Password"
+                  name="password"
+                  type="password"
+                  v-model="formData.confirmPassword"
+                  @focus="clearInputs"
+                  password-reveal
+                  required
+                ></b-input>
+              </b-field>
+
+              <button
+                class="button is-success"
+                @click.prevent="onSubmit"
+                :disabled="isDisabled"
+              >
+                Register
+              </button>
+            </form>
+          </div>
+        </article>
+        </section>
+    </div>
 </template>
-<script>
-export default {
 
+<script lang="ts">
+
+import { Vue, Component } from 'vue-property-decorator'
+import Auth from '../../auth/auth'
+import { RegisterRequest } from '@/models/AuthRequest.ts'
+@Component
+export default class Register extends Vue {
+      isDisabled = true
+      formData = new RegisterRequest();
+
+      async onSubmit ():Promise<void> {
+        try {
+          const response = await Auth.register(this.formData)
+          console.log(response)
+          // show a success message
+        } catch (e) {
+          // show an error message
+          console.error(e)
+        }
+      }
 }
-</script>
-<style lang="">
 
+</script>
+
+<style>
+.main {
+  width: 70%;
+  height: 100%;
+}
+.loading-icon {
+  position: absolute !important;
+  top: 30px !important;
+  right: 50px !important;
+  font-size: 8px;
+}
 </style>
