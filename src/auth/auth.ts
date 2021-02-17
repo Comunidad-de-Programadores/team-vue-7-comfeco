@@ -27,8 +27,8 @@ export class Auth {
    * Sen email to reset password
    * @param data
    */
-  forgotPassword (data: AuthRequest) {
-    console.log(data)
+  forgotPassword (email: string): Promise<void> {
+    return firebaseAuth.sendPasswordResetEmail(email)
   }
 
   /**
