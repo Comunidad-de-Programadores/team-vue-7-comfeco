@@ -67,6 +67,7 @@
 
               <b-button
                 type="is-primary"
+                class="mb-4"
                 size="is-medium"
                 expanded
                 @click.prevent="handleSubmit(onSubmit)"
@@ -75,6 +76,11 @@
                 Register
               </b-button>
               </ValidationObserver>
+              <p>Already register? 
+      <router-link :to="{ path: './login' }">
+        Sign In
+      </router-link>
+    </p>
             </form>
                   </div>
               </div>
@@ -94,11 +100,7 @@
     </div>
   </div>
   <!--div class="container">
-    <p>Already register? 
-      <router-link :to="{ path: './login' }">
-        Sign In
-      </router-link>
-    </p>
+    
   </div!-->
 </div>
 
