@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
 import firebase from '../firebase/firebaseapp'
+import AuthRoutes from './auth'
 Vue.use(VueRouter)
 
 const routes: Array<RouteConfig> = [
@@ -17,10 +18,16 @@ const routes: Array<RouteConfig> = [
       requiresAuth: true
     }
   },
+  ...AuthRoutes,
   {
     path: '/login',
     name: 'Login',
     component: () => import(/* webpackChunkName: "login" */ '../pages/Login.vue')
+  },
+  {
+    path: '*',
+    name: 'not-found',
+    component: () => import(/* webpackChunkName: "login" */ '../pages/404.vue')
   }
 ]
 

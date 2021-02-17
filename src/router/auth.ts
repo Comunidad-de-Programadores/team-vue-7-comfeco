@@ -17,8 +17,7 @@ const routes: Array<RouteConfig> = [
         name: 'forgot-password',
         component: () => import('../pages/auth/ForgotPassword.vue')
       },
-
-  {
+      {
         path: 'register',
         name: 'register',
         component: () => import('../pages/auth/Register.vue')

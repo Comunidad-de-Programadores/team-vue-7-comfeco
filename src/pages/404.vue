@@ -1,4 +1,5 @@
 <template lang="html">
+  <default-layout>
   <div class="hero is-fullheight-with-navbar">
     <div class="hero-body ">
       <div class="text-center is-flex is-flex-direction-column">
@@ -11,10 +12,17 @@
       </div>
     </div>
   </div>
+  </default-layout>
+
 </template>
 <script>
-import { Vue, Component } from 'vue-property-decorator'
-@Component
+import DefaultLayout from '@/components/layout/DefaultLayout.vue';
+import { Vue, Component } from 'vue-property-decorator';
+@Component({
+  components: {
+    DefaultLayout,
+  },
+})
 export default class NotFound extends Vue {}
 </script>
 <style lang=""></style>
