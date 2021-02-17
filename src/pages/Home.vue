@@ -10,9 +10,11 @@
           Una web para manejo de eventos
         </p>
         <div class="buttons  is-justify-content-center are-large">
-          <a href="" class="button  is-primary">
-            Crear cuenta
-          </a>
+          <router-link class="button is-primary" :to="{ path: './Register.vue'}">
+            <!-- <a href="" class="button  is-primary"> -->
+              Crear cuenta
+            <!-- </a> -->
+          </router-link>
            <a href="" class="button is-primary is-inverted ">
             Iniciar sesión
           </a>
@@ -30,7 +32,7 @@ export default class Home extends Vue {
    * Create method
    */
   created () {
-    console.log(this.$route.query)
+    console.log(this.$route.params)
   }
 }
 </script>

@@ -38,6 +38,7 @@ export default class ForgotPassword extends Vue {
       console.error(error)
     }
   }
+
 }
 </script>
 <style lang="">
