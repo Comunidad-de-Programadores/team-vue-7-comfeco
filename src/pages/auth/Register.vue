@@ -1,34 +1,24 @@
 <template lang="html">
-   <div class="container main">
-     <b-button
-        label="Launch toast "
-        type="is-success"
-        size="is-medium"
-        @click="success" />
+   <div class="columns is-centered">
+     <div class="column is-two-fifths has-text-centered">
       <section class="section">
-        <article class="message">
-          <div class="message-header is-info">
+        <article class="message is-info">
+          <div class="message-header ">
             <p>Register Form</p>
           </div>
           <div class="message-body">
             <form ref="form" @submit.prevent="onSubmit">
-              <b-field
-                  :type="formError.username ? 'is-danger': ''"
-                  :message="formError.username"
-              >
-                <b-input
-                    placeholder="Nickname"
-                    name="nickName"
-                    v-model="formData.nickName"
-                    required
-                >
-                </b-input>
-              </b-field>
-
-              <b-field
-                :type="formError.email ? 'is-danger': ''"
-                :message="formError.email"
-              >
+              <!-- <ValidationProvider rules="length:2" name="NickName" v-slot="{ errors, valid }"> -->
+                <b-field>
+                  <b-input
+                      placeholder="Nickname"
+                      v-model="formData.nickName"
+                      required
+                  >
+                  </b-input>
+                </b-field>
+              <!-- </ValidationProvider> -->
+              <b-field>
                 <b-input
                   placeholder="E-Mail"
                   name="email"
@@ -37,10 +27,7 @@
                 ></b-input>
               </b-field>
 
-              <b-field
-                :type="formError.password ? 'is-danger': ''"
-                :message="formError.password"
-              >
+              <b-field>
                 <b-input
                   placeholder="Password"
                   name="password"
@@ -51,10 +38,7 @@
                 ></b-input>
               </b-field>
 
-              <b-field
-                :type="formError.password ? 'is-danger': ''"
-                :message="formError.password"
-              >
+              <b-field>
                 <b-input
                   placeholder="Repeat Password"
                   name="password"
@@ -65,48 +49,70 @@
                 ></b-input>
               </b-field>
 
-              <button
+              <b-button
                 class="button is-success"
                 @click.prevent="onSubmit"
-                :disabled="isDisabled"
+                :loading="isLoading"
               >
                 Register
-              </button>
+              </b-button>
             </form>
           </div>
         </article>
-        </section>
+      </section>
     </div>
+  </div>
 </template>
 
 <script lang="ts">
-
+import { ValidationObserver, ValidationProvider } from 'vee-validate'
 import { Vue, Component } from 'vue-property-decorator'
 import Auth from '../../auth/auth'
 import { RegisterRequest } from '@/models/AuthRequest.ts'
-@Component
+@Component({
+  components: { ValidationProvider, ValidationObserver }
+})
 export default class Register extends Vue {
-      isDisabled = false
+      isLoading = false
       formData = new RegisterRequest();
-      formError = {}
+      // formError = {
+      //   nickName: '',
+      //   email: this.formData.email,
+      //   password: this.formData.password <= 8,
+      //   confirmPassword: 'Password does not match '
+      // }
 
       success (user: RegisterRequest): void {
         this.$buefy.toast.open({
           duration: 3000,
-          message: `Welcome ${user.nickName}}!`,
-          type: 'is-success'
+          message: `Welcome ${user.nickName}!`,
+          type: 'is-success',
+          size: 'is-medium'
+        })
+      }
+
+      fail (user: RegisterRequest): void {
+        this.$buefy.toast.open({
+          duration: 3000,
+          message: 'Something was wrong trying to create a user!',
+          type: 'is-danger',
+          size: 'is-medium'
         })
       }
 
       async onSubmit (): Promise<void> {
         try {
+          this.isLoading = true
           const user = await Auth.register(this.formData)
           console.log(user)
           this.success(user)
           // Redirect to login
+          this.$router.push('./login')
         } catch (e) {
           // show an error message
+          const user = await Auth.register(this.formData)
           console.error(e)
+          this.fail(user)
         }
       }
 }
