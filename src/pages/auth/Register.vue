@@ -1,105 +1,141 @@
 <template lang="html">
-   <div class="container main">
+  <div class="hero is-fullheight-with-navbar">
+   <div class="columns is-centered">
+     <div class="column is-two-fifths ">
       <section class="section">
-        <article class="message">
-          <div class="message-header is-info">
+        <article class="message is-info">
+          <div class="message-header ">
             <p>Register Form</p>
           </div>
           <div class="message-body">
             <form ref="form" @submit.prevent="onSubmit">
-              <b-field
-                  :type="formError.username ? 'is-danger': ''"
-                  :message="formError.username"
+              <ValidationObserver ref="observer" v-slot="{ handleSubmit }">
+              <ValidationProvider rules="required" name="Nickname" v-slot="{ errors, valid }">
+                <b-field 
+                  label="Nickname"
+                  :type="{ 'is-danger': errors[0], 'is-success': valid }"
+                  :message="errors"
+                  >
+                  <b-input
+                      placeholder="Type Nickname"
+                      v-model="formData.nickName"
+                      name="Nickname"
+                      required
+                  >
+                  </b-input>
+                </b-field>
+              </ValidationProvider>
+              <ValidationProvider rules="required|email" name="Email" v-slot="{ errors, valid }">
+              <b-field 
+              label="Email"
+              :type="{ 'is-danger': errors[0], 'is-success': valid }"
+              :message="errors"
               >
                 <b-input
-                    placeholder="Nickname"
-                    name="nickname"
-                    v-model="formData.nickName"
-                    @focus="clearInputs"
-                    required
-                >
-                </b-input>
-              </b-field>
-
-              <b-field
-                :type="formError.email ? 'is-danger': ''"
-                :message="formError.email"
-              >
-                <b-input
-                  placeholder="E-Mail"
-                  name="email"
+                  placeholder="Type E-Mail"
+                  name="Email"
                   v-model="formData.email"
-                  @focus="clearInputs"
                   required
                 ></b-input>
               </b-field>
-
+              </ValidationProvider>
+              <ValidationProvider rules="required" name="Email" v-slot="{ errors, valid }">
               <b-field
-                :type="formError.password ? 'is-danger': ''"
-                :message="formError.password"
+              label="Password"
+              :type="{ 'is-danger': errors[0], 'is-success': valid }"
+              :message="errors"
               >
                 <b-input
-                  placeholder="Password"
+                  placeholder="Type Password"
                   name="password"
                   type="password"
                   v-model="formData.password"
-                  @focus="clearInputs"
                   password-reveal
                   required
                 ></b-input>
               </b-field>
-
+              </ValidationProvider>
               <b-field
-                :type="formError.password ? 'is-danger': ''"
-                :message="formError.password"
-              >
+              label="Repeat Password">
                 <b-input
                   placeholder="Repeat Password"
                   name="password"
                   type="password"
                   v-model="formData.confirmPassword"
-                  @focus="clearInputs"
                   password-reveal
                   required
                 ></b-input>
               </b-field>
 
-              <button
+              <b-button
                 class="button is-success"
-                @click.prevent="onSubmit"
-                :disabled="isDisabled"
+                @click.prevent="handleSubmit(onSubmit)"
+                :loading="isLoading"
               >
                 Register
-              </button>
+              </b-button>
+              </ValidationObserver>
             </form>
           </div>
         </article>
-        </section>
+      </section>
     </div>
+  </div>
+  <div class="container">
+    <p>Already register? 
+      <router-link :to="{ path: './login' }">
+        Sign In
+      </router-link>
+    </p>
+  </div>
+</div>
+
 </template>
 
 <script lang="ts">
-
-import { Vue, Component } from 'vue-property-decorator'
-import Auth from '../../auth/auth'
-import { RegisterRequest } from '@/models/AuthRequest.ts'
-@Component
+import { ValidationObserver, ValidationProvider } from 'vee-validate';
+import { Vue, Component } from 'vue-property-decorator';
+import Auth from '../../auth/auth';
+import { RegisterRequest } from '@/models/AuthRequest.ts';
+@Component({
+  components: { ValidationProvider, ValidationObserver },
+})
 export default class Register extends Vue {
-      isDisabled = true
-      formData = new RegisterRequest();
+  isLoading = false;
+  formData = new RegisterRequest();
 
-      async onSubmit ():Promise<void> {
-        try {
-          const response = await Auth.register(this.formData)
-          console.log(response)
-          // show a success message
-        } catch (e) {
-          // show an error message
-          console.error(e)
-        }
-      }
+  success(user: RegisterRequest): void {
+    this.$buefy.toast.open({
+      duration: 3000,
+      message: `Welcome ${user.nickName}!`,
+      type: 'is-success',
+    });
+  }
+
+  fail(user: RegisterRequest): void {
+    this.$buefy.toast.open({
+      duration: 3000,
+      message: 'Something was wrong trying to create a user!',
+      type: 'is-danger',
+    });
+  }
+
+  async onSubmit(): Promise<void> {
+    try {
+      this.isLoading = true;
+      const user = await Auth.register(this.formData);
+      console.log(user);
+      this.success(user);
+      // Redirect to login
+      this.$router.push('./login');
+    } catch (e) {
+      // show an error message
+      const user = await Auth.register(this.formData);
+      console.error(e);
+      this.fail(user);
+    }
+  }
 }
-
 </script>
 
 <style>
