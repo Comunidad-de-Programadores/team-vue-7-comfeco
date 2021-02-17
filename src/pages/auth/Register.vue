@@ -1,6 +1,7 @@
 <template lang="html">
+  <div class="hero is-fullheight-with-navbar">
    <div class="columns is-centered">
-     <div class="column is-two-fifths has-text-centered">
+     <div class="column is-two-fifths ">
       <section class="section">
         <article class="message is-info">
           <div class="message-header ">
@@ -62,65 +63,60 @@
       </section>
     </div>
   </div>
+    </div>
+
 </template>
 
 <script lang="ts">
-import { ValidationObserver, ValidationProvider } from 'vee-validate'
-import { Vue, Component } from 'vue-property-decorator'
-import Auth from '../../auth/auth'
-import { RegisterRequest } from '@/models/AuthRequest.ts'
+import { ValidationObserver, ValidationProvider } from 'vee-validate';
+import { Vue, Component } from 'vue-property-decorator';
+import Auth from '../../auth/auth';
+import { RegisterRequest } from '@/models/AuthRequest.ts';
 @Component({
-  components: { ValidationProvider, ValidationObserver }
+  components: { ValidationProvider, ValidationObserver },
 })
 export default class Register extends Vue {
-      isLoading = false
-      formData = new RegisterRequest();
-      // formError = {
-      //   nickName: '',
-      //   email: this.formData.email,
-      //   password: this.formData.password <= 8,
-      //   confirmPassword: 'Password does not match '
-      // }
+  isLoading = false;
+  formData = new RegisterRequest();
+  // formError = {
+  //   nickName: '',
+  //   email: this.formData.email,
+  //   password: this.formData.password <= 8,
+  //   confirmPassword: 'Password does not match '
+  // }
 
-      success (user: RegisterRequest): void {
-        this.$buefy.toast.open({
-          duration: 3000,
-          message: `Welcome ${user.nickName}!`,
-          type: 'is-success',
-          size: 'is-medium'
-        })
-      }
+  success(user: RegisterRequest): void {
+    this.$buefy.toast.open({
+      duration: 3000,
+      message: `Welcome ${user.nickName}!`,
+      type: 'is-success',
+    });
+  }
 
-      fail (user: RegisterRequest): void {
-        this.$buefy.toast.open({
-          duration: 3000,
-          message: 'Something was wrong trying to create a user!',
-          type: 'is-danger',
-          size: 'is-medium'
-        })
-      }
+  fail(user: RegisterRequest): void {
+    this.$buefy.toast.open({
+      duration: 3000,
+      message: 'Something was wrong trying to create a user!',
+      type: 'is-danger',
+    });
+  }
 
-<<<<<<< HEAD
-      async onSubmit (): Promise<void> {
-=======
-      async onSubmit ():Promise<void> {
->>>>>>> origin/dev
-        try {
-          this.isLoading = true
-          const user = await Auth.register(this.formData)
-          console.log(user)
-          this.success(user)
-          // Redirect to login
-          this.$router.push('./login')
-        } catch (e) {
-          // show an error message
-          const user = await Auth.register(this.formData)
-          console.error(e)
-          this.fail(user)
-        }
-      }
+  async onSubmit(): Promise<void> {
+    try {
+      this.isLoading = true;
+      const user = await Auth.register(this.formData);
+      console.log(user);
+      this.success(user);
+      // Redirect to login
+      this.$router.push('./login');
+    } catch (e) {
+      // show an error message
+      const user = await Auth.register(this.formData);
+      console.error(e);
+      this.fail(user);
+    }
+  }
 }
-
 </script>
 
 <style>
