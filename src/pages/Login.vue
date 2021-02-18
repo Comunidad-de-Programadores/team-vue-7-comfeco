@@ -61,25 +61,24 @@ import { Component, Vue } from 'vue-property-decorator'
 import { firebaseApp } from '../firebase/firebaseapp'
 @Component({})
 export default class Login extends Vue {
-  username: string = '';
-  password: string = '';
+  username = '';
+  password = '';
 
   login (): void{
-    firebaseApp.auth().signInWithEmailAndPassword(this.username, this.password).catch(function(error) {
-        console.log(error);
-    });
+    firebaseApp.auth().signInWithEmailAndPassword(this.username, this.password).catch(function (error) {
+      console.log(error)
+    })
   }
 
-  mounted(){
-    let vm = this;
-    firebaseApp.auth().onAuthStateChanged(function(user) {
+  mounted ():void {
+    firebaseApp.auth().onAuthStateChanged((user) => {
       if (user) {
-        console.log("USUARIO LOGUEADO");
-        vm.$router.push("/dashboard");
-      }else {
-        console.log("USUARIO NO LOGUEADO");
-      }   
-    });
+        console.log('USUARIO LOGUEADO')
+        this.$router.push('/dashboard')
+      } else {
+        console.log('USUARIO NO LOGUEADO')
+      }
+    })
   }
 }
 </script>

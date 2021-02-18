@@ -6,7 +6,7 @@ export class Auth {
    * Log in a user
    * @param data
    */
-  login (data: AuthRequest) {
+  login (data: AuthRequest):void {
     console.log(data)
   }
 

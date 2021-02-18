@@ -9,7 +9,7 @@
 <form ref="form" @submit.prevent="onSubmit">
               <ValidationObserver ref="observer" v-slot="{ handleSubmit }">
               <ValidationProvider rules="required" name="Nickname" v-slot="{ errors, valid }">
-                <b-field 
+                <b-field
                   label="Nickname"
                   :type="{ 'is-danger': errors[0], 'is-success': valid }"
                   :message="errors"
@@ -24,7 +24,7 @@
                 </b-field>
               </ValidationProvider>
               <ValidationProvider rules="required|email" name="Email" v-slot="{ errors, valid }">
-              <b-field 
+              <b-field
               label="Email"
               :type="{ 'is-danger': errors[0], 'is-success': valid }"
               :message="errors"
@@ -76,7 +76,7 @@
                 Register
               </b-button>
               </ValidationObserver>
-              <p>Already register? 
+              <p>Already register?
       <router-link :to="{ path: './login' }">
         Sign In
       </router-link>
@@ -87,66 +87,51 @@
             </div>
         </div>
     </div>
-      <!--section class="section">
-        <article class="message is-info">
-          <div class="message-header ">
-            <p>Register Form</p>
-          </div>
-          <div class="message-body">
-            
-          </div>
-        </article>
-      </section-->
     </div>
-  </div>
-  <!--div class="container">
-    
-  </div!-->
-</div>
 
 </template>
 
 <script lang="ts">
-import { ValidationObserver, ValidationProvider } from 'vee-validate';
-import { Vue, Component } from 'vue-property-decorator';
-import Auth from '../../auth/auth';
-import { RegisterRequest } from '@/models/AuthRequest.ts';
+import { ValidationObserver, ValidationProvider } from 'vee-validate'
+import { Vue, Component } from 'vue-property-decorator'
+import Auth from '../../auth/auth'
+import { RegisterRequest } from '@/models/AuthRequest.ts'
 @Component({
-  components: { ValidationProvider, ValidationObserver },
+  components: { ValidationProvider, ValidationObserver }
 })
 export default class Register extends Vue {
   isLoading = false;
   formData = new RegisterRequest();
 
-  success(user: RegisterRequest): void {
+  success (user: RegisterRequest): void {
     this.$buefy.toast.open({
       duration: 3000,
       message: `Welcome ${user.nickName}!`,
-      type: 'is-success',
-    });
+      type: 'is-success'
+    })
   }
 
-  fail(user: RegisterRequest): void {
+  fail (user: RegisterRequest): void {
     this.$buefy.toast.open({
       duration: 3000,
       message: 'Something was wrong trying to create a user!',
-      type: 'is-danger',
-    });
+      type: 'is-danger'
+    })
   }
 
-  async onSubmit(): Promise<void> {
+  async onSubmit (): Promise<void> {
     try {
-      this.isLoading = true;
-      const user = await Auth.register(this.formData);
-      console.log(user);
-      this.success(user);
+      this.isLoading = true
+      const user = await Auth.register(this.formData)
+      console.log(user)
+      this.success(user)
       // Redirect to login
-      this.$router.push('./login');
+      this.$router.push('./login')
     } catch (e) {
       // show an error message
-      const user = await Auth.register(this.formData);
-      console.error(e);
-      this.fail(user);
+      const user = await Auth.register(this.formData)
+      console.error(e)
+      this.fail(user)
     }
   }
 }

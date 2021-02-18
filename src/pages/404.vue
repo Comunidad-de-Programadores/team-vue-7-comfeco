@@ -16,12 +16,12 @@
 
 </template>
 <script>
-import DefaultLayout from '@/components/layout/DefaultLayout.vue';
-import { Vue, Component } from 'vue-property-decorator';
+import DefaultLayout from '@/components/layout/DefaultLayout.vue'
+import { Vue, Component } from 'vue-property-decorator'
 @Component({
   components: {
-    DefaultLayout,
-  },
+    DefaultLayout
+  }
 })
 export default class NotFound extends Vue {}
 </script>

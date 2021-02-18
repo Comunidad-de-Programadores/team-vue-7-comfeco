@@ -1,7 +1,6 @@
 <template>
 
   <default-layout>
-    
 
   <section class="hero is-fullheight-with-navbar">
     <div class="hero-body">
@@ -32,9 +31,11 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import DefaultLayout from '@/components/layout/DefaultLayout.vue'
-@Component({components:{
-DefaultLayout
-}})
+@Component({
+  components: {
+    DefaultLayout
+  }
+})
 export default class Home extends Vue {
   /**
    * Create method

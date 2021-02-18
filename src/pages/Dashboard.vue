@@ -10,13 +10,12 @@ import { Component, Vue } from 'vue-property-decorator'
 import { firebaseApp } from '../firebase/firebaseapp'
 @Component({})
 export default class Login extends Vue {
-    salir (): void{
-      let vm = this;
-      firebaseApp.auth().signOut().then(function () {
-          vm.$router.push("/login");
-      })
-      .catch(function (error) {
-      });
+  salir (): void{
+    firebaseApp.auth().signOut().then(() => {
+      this.$router.push('/login')
+    }).catch(function (error) {
+      console.error(error)
+    })
   }
 }
 </script>

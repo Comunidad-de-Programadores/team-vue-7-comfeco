@@ -63,59 +63,59 @@
       </div>
       <!--div class="columns is-v-centered">
       <div class="column is-three-quarters">
-       
+
       </div>
     </div>
     <div class="hero-body">
-    
+
     </div-->
     </div>
   </default-layout>
 </template>
 <script lang="ts">
-import { ValidationObserver, ValidationProvider } from "vee-validate";
-import { Vue, Component } from "vue-property-decorator";
-import DefaultLayout from "@/components/layout/DefaultLayout.vue";
-import Auth from "@/auth/auth.ts";
+import { ValidationObserver, ValidationProvider } from 'vee-validate'
+import { Vue, Component } from 'vue-property-decorator'
+import DefaultLayout from '@/components/layout/DefaultLayout.vue'
+import Auth from '@/auth/auth.ts'
 @Component({
   components: { ValidationProvider, ValidationObserver, DefaultLayout }
 })
 export default class ForgotPassword extends Vue {
-  email = "";
-  isLoading:Boolean = false;
+  email = '';
+  isLoading = false;
   /**
    * shows a toast with a message
    */
-  showMessage(message:{type:string,text:string}={type:'is-success',text:''}){
+  showMessage (message:{type:string, text:string} = { type: 'is-success', text: '' }) {
     this.$buefy.toast.open({
       duration: 3000,
       message: message.text,
-      type: message.type,
-    });
+      type: message.type
+    })
   }
 
-  async submit() {
+  async submit () {
     try {
       this.isLoading = true
-      await Auth.forgotPassword(this.email);
-      console.log("Email send");
+      await Auth.forgotPassword(this.email)
+      console.log('Email send')
       this.isLoading = false
-      this.email  = ""
+      this.email = ''
       this.showMessage(
         {
           type: 'is-success',
-          text:'Email enviando exitosamente'
+          text: 'Email enviando exitosamente'
         }
       )
-   } catch (error) {
+    } catch (error) {
       this.isLoading = false
-       this.showMessage(
+      this.showMessage(
         {
           type: 'is-danger',
-          text:'Email no pudo ser enviando'
+          text: 'Email no pudo ser enviando'
         }
       )
-      console.error(error);
+      console.error(error)
     }
   }
 }
