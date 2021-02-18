@@ -39,7 +39,7 @@
                 ></b-input>
               </b-field>
               </ValidationProvider>
-              <ValidationProvider rules="required|confirmed:confirm" name="password" v-slot="{ errors, valid }">
+              <ValidationProvider vid="confirm" rules="required" name="password" v-slot="{ errors, valid }">
               <b-field
               label="Password"
               :type="{ 'is-danger': errors[0], 'is-success': valid }"
@@ -55,14 +55,17 @@
                 ></b-input>
               </b-field>
               </ValidationProvider>
-              <ValidationProvider vid="confirm" rules="required" name="password_confirmation" v-slot="{ errors, validate}">
+              <ValidationProvider rules="required|confirmed:confirm" name="password_confirmation" v-slot="{ errors, valid }">
               <b-field
-              label="Repeat Password">
+              label="Repeat Password"
+              :type="{ 'is-danger': errors[0], 'is-success': valid }"
+              :message="errors"
+              >
                 <b-input
                   placeholder="Repeat Password"
                   name="password_confirmation"
                   type="password"
-                  v-model="formError.confirmPassword"
+                  v-model="formData.confirmPassword"
                   password-reveal
                   required
                 ></b-input>
@@ -104,27 +107,6 @@ import { RegisterRequest } from '@/models/AuthRequest.ts';
 export default class Register extends Vue {
   isLoading = false;
   formData = new RegisterRequest();
-
-    formError = {}
-
-  // interface formError {
-	//   confirmPassword: string;
-	//   password: string;
-  // }
-
-  // declare formError= {
-  //   confirmPassword: '',
-  //   password: this.formData.password
-  // }
-
-  // matchingPasswords(): void{
-  //   console.log('funcinando')
-    // if (!this.formError.confirmPassword === this.formData.password){
-    //   console.log('passwords not matching')
-    // } else {
-    //   console.log('passwords matching')
-    // }
-  // }
 
   success(user: RegisterRequest): void {
     this.$buefy.toast.open({
