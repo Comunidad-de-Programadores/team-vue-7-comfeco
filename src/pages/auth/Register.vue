@@ -96,7 +96,7 @@
             {{ $t("register-form.title") }}
           </b-button>
         </ValidationObserver>
-        <p>
+        <p class="has-text-centered">
           {{ $t("register-form.already") }}
           <router-link class="has-text-center" :to="{ path: './login' }">
             {{ $t("register-form.already-link") }}

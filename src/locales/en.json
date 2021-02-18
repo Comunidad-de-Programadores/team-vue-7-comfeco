@@ -1,9 +1,13 @@
 {
-  "login":"Sign In ",
+  "login":"Sign In",
   "register":"Sign Up",
+  "logout":"Log out",
   "password":"Password",
+  "here":"here",
   "login-form":{
-    "title": "Iniciar sesión"
+    "title": "Log In",
+    "have-account":"Don't have an account? click",
+    "forgot-password":"Forgot Password?"
   },
   "forgot-password":{
     "title":"Recover password",

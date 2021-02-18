@@ -14,16 +14,16 @@
       <b-navbar-item tag="div">
         <div class="buttons" v-if="currentUser">
           <b-button @click="logOut()">
-            Log Out
+            {{$t('logout')}}
           </b-button>
         </div>
         <div class="buttons" v-if="!currentUser">
           <router-link class="button is-primary" :to="{ name: 'login' }">
-            <strong>Login </strong>
+            <strong>{{$t('login')}} </strong>
           </router-link>
 
           <router-link class="button" :to="{ name: 'register' }">
-            <strong>Register </strong>
+            <strong>{{$t('register')}} </strong>
           </router-link>
           <div class="is-divider-vertical" data-content=""></div>
           <b-navbar-dropdown

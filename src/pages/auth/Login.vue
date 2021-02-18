@@ -28,8 +28,7 @@
           v-slot="{ errors, valid }"
         >
           <b-field
-          class="mb-4"
-            :label="$t('contraseña')"
+            :label="$t('password')"
             :type="{ 'is-danger': errors[0], 'is-success': valid }"
             :message="errors"
           >
@@ -37,9 +36,21 @@
           </b-field>
         </validation-provider>
 
+          <p class="my-3">
+            <router-link  :to="{name:'forgot-password'}">
+              {{$t('login-form.forgot-password')}}
+            </router-link>
+          </p>
+
         <b-button size="is-medium" @click="handleSubmit(login)" expanded type="is-primary">
-          Iniciar Sesión
+         {{$t('login')}}
         </b-button>
+          <p class="mt-4 has-text-centered">
+            {{$t('login-form.have-account')}}
+            <router-link :to="{name:'register'}">
+              {{$t('here')}}
+            </router-link>
+          </p>
       </validation-observer>
     </div>
   </div>

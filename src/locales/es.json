@@ -1,9 +1,13 @@
 {
   "login":"Iniciar Sesión",
   "register":"Crear Cuenta",
+  "logout":"Cerrar sesión",
   "password":"Contraseña",
+  "here":"aquí",
   "login-form":{
-    "title": "Iniciar sesión"
+    "title": "Iniciar sesión",
+    "have-account":"No tienes cuenta? haz click",
+    "forgot-password":"He olvidado tu contraseña?"
   },
   "forgot-password":{
     "title":"Recuperar Contraseña",
