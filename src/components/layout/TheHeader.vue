@@ -12,16 +12,23 @@
 
     <template #end>
       <b-navbar-item tag="div">
-        <div class="buttons">
-          <router-link class="button is-primary" :to="{ path: '/auth/login' }">
+        <div class="buttons" v-if="currentUser">
+          <b-button @click="logOut()">
+            Log Out
+          </b-button>
+        </div>
+        <div class="buttons" v-if="!currentUser">
+          <router-link class="button is-primary" :to="{ name: 'login' }">
             <strong>Login </strong>
           </router-link>
 
-          <router-link class="button" :to="{ path: '/auth/register' }">
+          <router-link class="button" :to="{ name: 'register' }">
             <strong>Register </strong>
           </router-link>
-            <div class="is-divider-vertical" data-content=""></div>
-          <b-navbar-dropdown :label="'Lang: ' + $i18n.locale.toLocaleUpperCase()">
+          <div class="is-divider-vertical" data-content=""></div>
+          <b-navbar-dropdown
+            :label="'Lang: ' + $i18n.locale.toLocaleUpperCase()"
+          >
             <b-navbar-item @click="$i18n.locale = 'es'">
               Español
             </b-navbar-item>
@@ -35,9 +42,28 @@
   </b-navbar>
 </template>
 <script lang="ts">
-import { Vue, Component } from 'vue-property-decorator'
-
+import { Vue, Component, Watch } from 'vue-property-decorator'
+import Auth from '../../auth/auth'
 @Component
-export default class TheHeader extends Vue {}
+export default class TheHeader extends Vue {
+  get currentUser (): any {
+    return Auth.getCurrentUser()
+  }
+
+  @Watch('currentUser')
+  onCurrentUserChange (value:any, oldValue:any):void {
+    console.log(value, oldValue)
+  }
+
+  logOut (): void {
+    Auth.signOut()
+      .then(() => {
+        this.$router.push({ name: 'login' }, () => { console.log('leaving') })
+      })
+      .catch(function (error) {
+        console.error(error)
+      })
+  }
+}
 </script>
 <style lang="scss"></style>

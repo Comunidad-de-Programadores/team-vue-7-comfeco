@@ -10,22 +10,34 @@ const routes: Array<RouteConfig> = [
       {
         path: 'login',
         name: 'login',
-        component: () => import('../pages/auth/Login.vue')
+        component: () => import('../pages/auth/Login.vue'),
+        meta: {
+          requiresNoAuth: true
+        }
       },
       {
         path: 'forgot-password',
         name: 'forgot-password',
-        component: () => import('../pages/auth/ForgotPassword.vue')
+        component: () => import('../pages/auth/ForgotPassword.vue'),
+        meta: {
+          requiresNoAuth: true
+        }
       },
       {
         path: 'reset-password',
         name: 'reset-password',
-        component: () => import('../pages/auth/ResetPassword.vue')
+        component: () => import('../pages/auth/ResetPassword.vue'),
+        meta: {
+          requiresNoAuth: true
+        }
       },
       {
         path: 'register',
         name: 'register',
-        component: () => import('../pages/auth/Register.vue')
+        component: () => import('../pages/auth/Register.vue'),
+        meta: {
+          requiresNoAuth: true
+        }
       }
     ]
   }

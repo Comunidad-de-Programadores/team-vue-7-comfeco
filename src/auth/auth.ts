@@ -48,6 +48,10 @@ export class Auth {
   getCurrentUser (): any {
     return firebaseAuth.currentUser
   }
+
+  signOut () : Promise<void> {
+    return firebaseAuth.signOut()
+  }
 }
 
 export default new Auth()

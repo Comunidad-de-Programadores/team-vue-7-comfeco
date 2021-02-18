@@ -65,19 +65,8 @@ export default class Login extends Vue {
   password = '';
 
   login (): void{
-    firebaseApp.auth().signInWithEmailAndPassword(this.username, this.password).catch(function (error) {
-      console.log(error)
-    })
-  }
-
-  mounted ():void {
-    firebaseApp.auth().onAuthStateChanged((user) => {
-      if (user) {
-        console.log('USUARIO LOGUEADO')
-        this.$router.push('/dashboard')
-      } else {
-        console.log('USUARIO NO LOGUEADO')
-      }
+    firebaseApp.auth().signInWithEmailAndPassword(this.username, this.password).then(() => {
+      this.$router.push({ name: 'dashboard' })
     })
   }
 }

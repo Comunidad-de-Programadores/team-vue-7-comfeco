@@ -1,14 +1,22 @@
 <template>
-    <section>
-        <h1>Dashboard</h1>
-        <b-button type="is-primary"  @click="salir()">Salir de sesión</b-button>
-    </section>
+<default-layout>
+  <div class="dashboard">
+    <p class="title">
+      Dashboard
+    </p>
+  </div>
+</default-layout>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import { firebaseApp } from '../firebase/firebaseapp'
-@Component({})
+import DefaultLayout from '../components/layout/DefaultLayout.vue'
+@Component({
+  components: {
+    DefaultLayout
+  }
+})
 export default class Login extends Vue {
   salir (): void{
     firebaseApp.auth().signOut().then(() => {
@@ -19,3 +27,11 @@ export default class Login extends Vue {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+  .dashboard{
+    padding: 1rem;
+    min-height: 100vh;
+    padding-top: 3.5rem;
+  }
+</style>

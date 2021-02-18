@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
 import firebase from '../firebase/firebaseapp'
 import AuthRoutes from './auth'
+import auth from '@/auth/auth'
 Vue.use(VueRouter)
 
 const routes: Array<RouteConfig> = [
@@ -12,18 +13,13 @@ const routes: Array<RouteConfig> = [
   },
   {
     path: '/dashboard',
-    name: 'Dashboard',
+    name: 'dashboard',
     component: () => import(/* webpackChunkName: "dashboard" */ '../pages/Dashboard.vue'),
     meta: {
       requiresAuth: true
     }
   },
   ...AuthRoutes,
-  {
-    path: '/login',
-    name: 'Login',
-    component: () => import(/* webpackChunkName: "login" */ '../pages/Login.vue')
-  },
   {
     path: '*',
     name: 'not-found',
@@ -47,11 +43,17 @@ const getCurrentUser = () => {
 
 router.beforeEach(async (to, from, next) => {
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth)
-  if (requiresAuth && !await getCurrentUser()) {
-    next('/')
-  } else {
-    next()
+  const requiresNoAuth = to.matched.some(record => record.meta.requiresNoAuth)
+  console.log(requiresAuth, requiresNoAuth)
+  const user = await getCurrentUser()
+
+  if (requiresAuth && !user) {
+    next({ name: 'login' })
   }
+  if (requiresNoAuth && user) {
+    next({ name: 'dashboard' })
+  }
+  next()
 })
 
 export default router
