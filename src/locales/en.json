@@ -1,6 +1,10 @@
 {
   "login":"Sign In ",
   "register":"Sign Up",
+  "password":"Password",
+  "login-form":{
+    "title": "Iniciar sesión"
+  },
   "forgot-password":{
     "title":"Recover password",
     "subtitle": "Write down your email in order to recover your password",
@@ -13,7 +17,7 @@
     "error-message":"Error, your password could not be reset",
     "success-message":"Passwrod reset successfully"
   },
-  "register":{
+  "register-form":{
     "title":"Create an account ",
     "password":"Password",
     "repeat-password":"Confirm password",

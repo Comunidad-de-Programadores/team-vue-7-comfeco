@@ -44,12 +44,12 @@ const getCurrentUser = () => {
 router.beforeEach(async (to, from, next) => {
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth)
   const requiresNoAuth = to.matched.some(record => record.meta.requiresNoAuth)
-  console.log(requiresAuth, requiresNoAuth)
   const user = await getCurrentUser()
-
+  // if routes requires auth but user not loged in rediret to log
   if (requiresAuth && !user) {
     next({ name: 'login' })
   }
+  // if route requires not auth but user is log in redirect to dashboard
   if (requiresNoAuth && user) {
     next({ name: 'dashboard' })
   }

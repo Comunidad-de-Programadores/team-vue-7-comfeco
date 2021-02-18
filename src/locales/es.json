@@ -1,6 +1,10 @@
 {
   "login":"Iniciar Sesión",
   "register":"Crear Cuenta",
+  "password":"Contraseña",
+  "login-form":{
+    "title": "Iniciar sesión"
+  },
   "forgot-password":{
     "title":"Recuperar Contraseña",
     "subtitle": "Escribe tu email para poder recuperar tu contraseña",
