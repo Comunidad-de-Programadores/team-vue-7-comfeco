@@ -1,11 +1,14 @@
 <template lang="html">
-  <div>
-    <router-view></router-view>
-  </div>
+  <centered-layout>
+      <router-view></router-view>
+  </centered-layout>
 </template>
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
-@Component
+import CenteredLayout from '@/components/layout/CenteredLayout.vue'
+@Component({
+  components: { CenteredLayout }
+})
 export default class Index extends Vue {
 
 }

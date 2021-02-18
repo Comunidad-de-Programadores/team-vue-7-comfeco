@@ -1,9 +1,5 @@
 <template lang="html">
-  <div class="hero is-fullheight-with-navbar">
-    <div class="hero-body">
-        <div class="container">
-          <div class="columns is-centered">
-              <div class="column is-12-mobile  is-6-tablet is-4-desktop ">
+ <div class="column is-offset-3-table is-offset-4-desktop is-12-mobile is-6-tablet is-4-desktop">
                   <h3 class="title has-text-centered">Register Form</h3>
                   <div class="box">
 <form ref="form" @submit.prevent="onSubmit">
@@ -84,10 +80,6 @@
             </form>
                   </div>
               </div>
-            </div>
-        </div>
-    </div>
-    </div>
 
 </template>
 
@@ -96,6 +88,7 @@ import { ValidationObserver, ValidationProvider } from 'vee-validate'
 import { Vue, Component } from 'vue-property-decorator'
 import Auth from '../../auth/auth'
 import { RegisterRequest } from '@/models/AuthRequest.ts'
+
 @Component({
   components: { ValidationProvider, ValidationObserver }
 })
@@ -111,7 +104,7 @@ export default class Register extends Vue {
     })
   }
 
-  fail (user: RegisterRequest): void {
+  fail (): void {
     this.$buefy.toast.open({
       duration: 3000,
       message: 'Something was wrong trying to create a user!',
@@ -131,7 +124,7 @@ export default class Register extends Vue {
       // show an error message
       const user = await Auth.register(this.formData)
       console.error(e)
-      this.fail(user)
+      this.fail()
     }
   }
 }

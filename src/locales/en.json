@@ -5,8 +5,12 @@
     "button":"Recover password"
   },
   "reset-password":{
-    "title":"Reset password",
-    "button":"Reset"
+    "title":"Cambiar contraseña",
+    "button":"Cambiar",
+    "placeholder":"New passwrod",
+    "error-message":"Error, your password could not be reset",
+    "success-message":"Passwrod reset successfully"
+
 
   }
 }

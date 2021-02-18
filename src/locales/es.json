@@ -7,6 +7,8 @@
   "reset-password":{
     "title":"Cambiar contraseña",
     "button":"Cambiar",
-    "placeholder":"Tu nueva contraseña"
+    "placeholder":"Tu nueva contraseña",
+    "error-message":"Error, tu contraseña no pudo ser cambiada",
+    "success-message":"Contraseña cambianada exitosamente"
   }
 }

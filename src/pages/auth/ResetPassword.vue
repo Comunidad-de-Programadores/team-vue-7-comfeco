@@ -1,5 +1,4 @@
 <template lang="html">
-  <centered-layout>
     <div
       class="column is-offset-3-table is-offset-4-desktop is-12-mobile is-6-tablet is-4-desktop"
     >
@@ -39,7 +38,8 @@
               :message="errors"
             >
               <b-input
-                type="passwordConfirmation"
+              name="confirmPassword"
+                type="password"
                 v-model="confirmPassword"
               ></b-input>
             </b-field>
@@ -49,33 +49,64 @@
             expanded
             size="is-medium"
             @click="handleSubmit(submit)"
-            :loading="isLoading"
+            :loading="loading"
           >
             {{ $t("reset-password.button") }}
           </b-button>
         </validation-observer>
       </div>
     </div>
-  </centered-layout>
 </template>
 <script lang="ts">
-import { Vue, Component } from 'vue-property-decorator'
+import { Component } from 'vue-property-decorator'
 import { ValidationObserver, ValidationProvider } from 'vee-validate'
-import CenteredLayout from '@/components/layout/CenteredLayout.vue'
+import Auth from '../../auth/auth'
+import Form from '@/models/Form.ts'
 @Component({
   components: {
-    CenteredLayout,
     ValidationObserver,
     ValidationProvider
   }
 })
-export default class ResetPassword extends Vue {
-  isLoading = false;
-  password = null
-  confirmPassword = null
+export default class ResetPassword extends Form {
+  // variables
+  password = ''
+  confirmPassword = ''
+  actionCode = ''
+  /**
+   * Create method
+   */
+  created (): void {
+    // Get action code
+    this.actionCode = this.$route.query.oobCode ? this.$route.query.oobCode.toString() : ''
+  }
 
-  submit (): void {
-    console.log('submited')
+  /**
+   * Submit action
+   */
+  async submit (): Promise<void> {
+    try {
+      this.loading = true
+      // reset password with action code
+      await Auth.resetPasssword(this.actionCode, this.password)
+      this.loading = false
+      this.showMessage({
+        type: 'is-success',
+        text: this.$t('reset-password.success-message').toString()
+      })
+      this.password = ''
+      this.confirmPassword = ''
+      setTimeout(() => {
+        this.$router.push({ name: 'login' })
+      }, 3000)
+    } catch (e) {
+      this.loading = false
+      this.showMessage({
+        type: 'is-danger',
+        text: this.$t('reset-password.error-message').toString()
+      })
+      console.error(e)
+    }
   }
 }
 </script>

@@ -1,9 +1,5 @@
 <template>
-  <default-layout>
-    <div class="hero is-fullheight-with-navbar">
-      <div class="hero-body">
-        <div class="container">
-          <div class="columns">
+
             <div
               class="column is-12-mobile is-6-table is-offset-3-table is-offset-4-desktop is-4-desktop"
             >
@@ -49,27 +45,13 @@
                 </validation-observer>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-      <!--div class="columns is-v-centered">
-      <div class="column is-three-quarters">
-
-      </div>
-    </div>
-    <div class="hero-body">
-
-    </div-->
-    </div>
-  </default-layout>
 </template>
 <script lang="ts">
 import { ValidationObserver, ValidationProvider } from 'vee-validate'
 import { Vue, Component } from 'vue-property-decorator'
-import DefaultLayout from '@/components/layout/DefaultLayout.vue'
 import Auth from '@/auth/auth.ts'
 @Component({
-  components: { ValidationProvider, ValidationObserver, DefaultLayout }
+  components: { ValidationProvider, ValidationObserver }
 })
 export default class ForgotPassword extends Vue {
   email = '';
