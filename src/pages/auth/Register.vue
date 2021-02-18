@@ -122,7 +122,6 @@ export default class Register extends Vue {
       this.$router.push('./login')
     } catch (e) {
       // show an error message
-      const user = await Auth.register(this.formData)
       console.error(e)
       this.fail()
     }

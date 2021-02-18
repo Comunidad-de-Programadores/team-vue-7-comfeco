@@ -6,6 +6,7 @@
         {{ $t("reset-password.title") }}
       </h1>
       <div class="box">
+        <form action=""></form>
         <validation-observer ref="observer" v-slot="{ handleSubmit }">
           <validation-provider
             rules="required"
@@ -73,6 +74,7 @@ export default class ResetPassword extends Form {
   password = ''
   confirmPassword = ''
   actionCode = ''
+
   /**
    * Create method
    */
@@ -96,6 +98,7 @@ export default class ResetPassword extends Form {
       })
       this.password = ''
       this.confirmPassword = ''
+      this.$refs.observer.reset()
       setTimeout(() => {
         this.$router.push({ name: 'login' })
       }, 3000)
