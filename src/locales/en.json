@@ -1,4 +1,6 @@
 {
+  "login":"Sign In ",
+  "register":"Sign Up",
   "forgot-password":{
     "title":"Recover password",
     "subtitle": "Write down your email in order to recover your password",
@@ -10,7 +12,13 @@
     "placeholder":"New passwrod",
     "error-message":"Error, your password could not be reset",
     "success-message":"Passwrod reset successfully"
-
+  },
+  "register":{
+    "title":"Create an account ",
+    "password":"Password",
+    "repeat-password":"Confirm password",
+    "already":"Already have an account? click ",
+    "already-link":"here"
 
   }
 }

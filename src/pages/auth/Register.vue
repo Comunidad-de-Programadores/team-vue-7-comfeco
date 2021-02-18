@@ -1,6 +1,6 @@
 <template lang="html">
  <div class="column is-offset-3-table is-offset-4-desktop is-12-mobile is-6-tablet is-4-desktop">
-                  <h3 class="title has-text-centered">Register Form</h3>
+                  <h3 class="title has-text-centered">{{$t('register-form.title')}}</h3>
                   <div class="box">
 <form ref="form" @submit.prevent="onSubmit">
               <ValidationObserver ref="observer" v-slot="{ handleSubmit }">
@@ -33,9 +33,9 @@
                 ></b-input>
               </b-field>
               </ValidationProvider>
-              <ValidationProvider rules="required" name="Email" v-slot="{ errors, valid }">
+              <ValidationProvider rules="required|confirmed:confirm" name="password" v-slot="{ errors, valid }">
               <b-field
-              label="Password"
+              :label="$t('register-form.password')"
               :type="{ 'is-danger': errors[0], 'is-success': valid }"
               :message="errors"
               >
@@ -49,18 +49,22 @@
                 ></b-input>
               </b-field>
               </ValidationProvider>
+              <ValidationProvider vid="confirm" rules="required" name="password_confirmation" v-slot="{ errors,valid}">
               <b-field
-              label="Repeat Password">
-                <b-input
+              class="mb-4"
+                    :type="{ 'is-danger': errors[0], 'is-success': valid }"
+              :message="errors"
+              :label="$t('register-form.repeat-password')">
+                             <b-input
                   placeholder="Repeat Password"
-                  name="password"
+                  name="password_confirmation"
                   type="password"
                   v-model="formData.confirmPassword"
                   password-reveal
                   required
                 ></b-input>
               </b-field>
-
+              </ValidationProvider>
               <b-button
                 type="is-primary"
                 class="mb-4"
@@ -69,12 +73,12 @@
                 @click.prevent="handleSubmit(onSubmit)"
                 :loading="isLoading"
               >
-                Register
+                {{$t("register-form.title")}}
               </b-button>
               </ValidationObserver>
-              <p>Already register?
-      <router-link :to="{ path: './login' }">
-        Sign In
+              <p>{{$t("register-form.already")}}
+      <router-link class="has-text-center" :to="{ path: './login' }">
+       {{$t("register-form.already-link")}}
       </router-link>
     </p>
             </form>

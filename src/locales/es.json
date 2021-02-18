@@ -1,4 +1,6 @@
 {
+  "login":"Iniciar Sesión",
+  "register":"Crear Cuenta",
   "forgot-password":{
     "title":"Recuperar Contraseña",
     "subtitle": "Escribe tu email para poder recuperar tu contraseña",
@@ -10,5 +12,13 @@
     "placeholder":"Tu nueva contraseña",
     "error-message":"Error, tu contraseña no pudo ser cambiada",
     "success-message":"Contraseña cambianada exitosamente"
+  },
+  "register-form":{
+    "title":"Crear cuenta",
+    "password":"Contraseña",
+    "repeat-password":"Confirmar Contraseña",
+    "already":"Ya tienes cuenta? haz clic",
+    "already-link":"aquí"
+
   }
 }
