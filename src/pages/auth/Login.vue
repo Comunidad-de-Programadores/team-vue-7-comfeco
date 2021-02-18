@@ -32,7 +32,8 @@
             :type="{ 'is-danger': errors[0], 'is-success': valid }"
             :message="errors"
           >
-            <b-input v-model="password" type="password"></b-input>
+            <b-input v-model="password"                 password-reveal
+ type="password"></b-input>
           </b-field>
         </validation-provider>
 
@@ -42,7 +43,9 @@
             </router-link>
           </p>
 
-        <b-button size="is-medium" @click="handleSubmit(login)" expanded type="is-primary">
+        <b-button
+          :loading="loading"
+        size="is-medium" @click="handleSubmit(login)" expanded type="is-primary">
          {{$t('login')}}
         </b-button>
           <p class="mt-4 has-text-centered">
@@ -57,23 +60,27 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component } from 'vue-property-decorator'
 import { firebaseApp } from '@/firebase/firebaseapp'
 import { ValidationObserver, ValidationProvider } from 'vee-validate'
+import Form from '@/models/Form'
 
 @Component({
   components: { ValidationProvider, ValidationObserver }
 })
-export default class Login extends Vue {
+export default class Login extends Form {
   username = '';
   password = '';
-  login (): void {
-    firebaseApp
-      .auth()
-      .signInWithEmailAndPassword(this.username, this.password)
-      .then(() => {
-        this.$router.push({ name: 'dashboard' })
-      })
+  async login (): Promise<void> {
+    this.loading = true
+    try {
+      await firebaseApp.auth().signInWithEmailAndPassword(this.username, this.password)
+      this.loading = false
+      this.$router.push({ name: 'dashboard' })
+    } catch (e) {
+      this.loading = false
+      console.error(e)
+    }
   }
 }
 </script>

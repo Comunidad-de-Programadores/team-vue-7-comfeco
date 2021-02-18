@@ -16,6 +16,16 @@
           <b-button @click="logOut()">
             {{$t('logout')}}
           </b-button>
+           <b-navbar-dropdown
+            :label="'Lang: ' + $i18n.locale.toLocaleUpperCase()"
+          >
+            <b-navbar-item @click="$i18n.locale = 'es'">
+              Español
+            </b-navbar-item>
+            <b-navbar-item href="#" @click="$i18n.locale = 'en'">
+              English
+            </b-navbar-item>
+          </b-navbar-dropdown>
         </div>
         <div class="buttons" v-if="!currentUser">
           <router-link class="button is-primary" :to="{ name: 'login' }">
@@ -26,7 +36,7 @@
             <strong>{{$t('register')}} </strong>
           </router-link>
           <div class="is-divider-vertical" data-content=""></div>
-          <b-navbar-dropdown
+ <b-navbar-dropdown
             :label="'Lang: ' + $i18n.locale.toLocaleUpperCase()"
           >
             <b-navbar-item @click="$i18n.locale = 'es'">
@@ -36,6 +46,7 @@
               English
             </b-navbar-item>
           </b-navbar-dropdown>
+
         </div>
       </b-navbar-item>
     </template>

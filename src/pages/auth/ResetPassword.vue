@@ -20,6 +20,7 @@
             :message="errors"
           >
             <b-input
+                            password-reveal
               :placeholder="$t('reset-password.placeholder')"
               type="password"
               v-model="password"
@@ -41,6 +42,8 @@
             <b-input
               name="confirmPassword"
               type="password"
+                              password-reveal
+
               v-model="confirmPassword"
             ></b-input>
           </b-field>
