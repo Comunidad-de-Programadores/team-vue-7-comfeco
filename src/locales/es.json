@@ -7,7 +7,7 @@
   "login-form":{
     "title": "Iniciar sesión",
     "have-account":"No tienes cuenta? haz click",
-    "forgot-password":"He olvidado tu contraseña?"
+    "forgot-password":"Has olvidado tu contraseña?"
   },
   "forgot-password":{
     "title":"Recuperar Contraseña",
