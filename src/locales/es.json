@@ -3,5 +3,10 @@
     "title":"Recuperar Contraseña",
     "subtitle": "Escribe tu email para poder recuperar tu contraseña",
     "button":"Recuperar Contraseña"
+  },
+  "reset-password":{
+    "title":"Cambiar contraseña",
+    "button":"Cambiar",
+    "placeholder":"Tu nueva contraseña"
   }
 }

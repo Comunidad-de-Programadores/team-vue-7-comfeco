@@ -34,17 +34,18 @@ export class Auth {
   }
 
   /**
-   * Reset user password
-   * @param data
-   */
-  resetPasssword (data: AuthRequest) {
-    console.log(data)
+ * Resets a firebase user password
+ * @param code action code from firebase
+ * @param newPassword new password
+ */
+  resetPasssword (code:string, newPassword:string): Promise<void> {
+    return firebaseAuth.confirmPasswordReset(code, newPassword)
   }
 
   /**
    * Returns curren user
    */
-  getCurrentUser () {
+  getCurrentUser (): any {
     return firebaseAuth.currentUser
   }
 }

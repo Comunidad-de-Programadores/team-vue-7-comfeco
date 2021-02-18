@@ -36,15 +36,6 @@
                     </b-field>
                   </validation-provider>
                   <div class="buttons has-text-centered">
-                    <!--button
-                      class="button is-medium is-fullwidth is-primary"
-                      @click="handleSubmit(submit)"
-                    >
-                      <span class="icon is-small">
-                        <i class="fas fa-check"></i>
-                      </span>
-                      <span>Recuperar Contraseña</span>
-                    </button-->
                     <b-button
                 type="is-primary"
                 expanded
@@ -86,7 +77,8 @@ export default class ForgotPassword extends Vue {
   /**
    * shows a toast with a message
    */
-  showMessage (message:{type:string, text:string} = { type: 'is-success', text: '' }) {
+  showMessage (
+    message:{type:string, text:string} = { type: 'is-success', text: '' }):void {
     this.$buefy.toast.open({
       duration: 3000,
       message: message.text,
@@ -94,7 +86,10 @@ export default class ForgotPassword extends Vue {
     })
   }
 
-  async submit () {
+  /**
+   * Submit function
+   */
+  async submit ():Promise<void> {
     try {
       this.isLoading = true
       await Auth.forgotPassword(this.email)

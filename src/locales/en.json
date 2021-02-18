@@ -3,5 +3,10 @@
     "title":"Recover password",
     "subtitle": "Write down your email in order to recover your password",
     "button":"Recover password"
+  },
+  "reset-password":{
+    "title":"Reset password",
+    "button":"Reset"
+
   }
 }
