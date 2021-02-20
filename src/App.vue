@@ -8,12 +8,14 @@ import Vue from 'vue'
 import Component from 'vue-class-component'
 import TheHeader from '@/components/layout/TheHeader.vue'
 import TheFooter from '@/components/layout/TheFooter.vue'
+import SecondaryCarousel from '@/components/layout/SecondaryCarousel.vue'
 
 @Component(
   {
     components: {
       TheHeader,
-      TheFooter
+      TheFooter,
+      SecondaryCarousel
     }
   }
 )

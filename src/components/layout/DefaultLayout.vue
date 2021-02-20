@@ -2,6 +2,7 @@
   <div>
     <TheHeader/>
     <slot></slot>
+    <SecondaryCarousel/>
     <TheFooter/>
   </div>
 </template>
@@ -10,11 +11,13 @@
 import { Vue, Component ,Prop } from "vue-property-decorator";
 import TheHeader from "./TheHeader.vue";
 import TheFooter from "./TheFooter.vue";
+import SecondaryCarousel from "./SecondaryCarousel.vue";
 
 @Component({
   components:{
     TheHeader,
-    TheFooter
+    TheFooter,
+    SecondaryCarousel
   }})
 export default class DefaultLayout extends Vue {
 
