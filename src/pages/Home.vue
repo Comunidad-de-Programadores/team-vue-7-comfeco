@@ -14,14 +14,25 @@
         </p>
         <div class="buttons  is-justify-content-center are-large">
           <router-link class="button is-primary" :to="{ path: './Register.vue'}">
-            <!-- <a href="" class="button  is-primary"> -->
-              Crear cuenta
-            <!-- </a> -->
+
           </router-link>
            <a href="" class="button is-primary is-inverted ">
             Iniciar sesión
           </a>
         </div>
+
+      <!--### Content creators coroussel ### -->
+
+      <!--### END Content creators coroussel ### -->
+
+      <!--### Websites coroussel ### -->
+
+      <!--### END Websites coroussel ### -->
+
+      <!--### Clock ### -->
+
+      <!--### END Clock ### -->
+
       </div>
     </div>
   </section>
