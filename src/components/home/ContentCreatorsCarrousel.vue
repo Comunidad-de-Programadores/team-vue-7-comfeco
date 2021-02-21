@@ -1,14 +1,12 @@
 <template lang="HTML">
   <div>
     <h1>Remote Cretors</h1>
-
     <b-carousel>
         <b-carousel-item v-for="(carousel, i) in carousels" :key="i">
           <div class="columns p-4">
             <div v-for="(image, j) in carousel.contentCreators" :key="j" class="column is-4  "  >
               <figure class="image is-128x128 has-text-centered">
                 <img :src="image.image" class="is-rounded " alt="">
-
               </figure>
             </div>
           </div>
