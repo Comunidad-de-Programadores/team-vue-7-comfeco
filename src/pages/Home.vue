@@ -24,7 +24,7 @@
       <!--### Content creators coroussel ### -->
       <ContentCreatorsCarrousel/>
       <!--### END Content creators coroussel ### -->
-
+      <SponsorCarrousel/>
       <!--### Websites coroussel ### -->
 
       <!--### END Websites coroussel ### -->
@@ -43,10 +43,12 @@
 import { Component, Vue } from 'vue-property-decorator'
 import DefaultLayout from '@/components/layout/DefaultLayout.vue'
 import ContentCreatorsCarrousel from '@/components/home/ContentCreatorsCarrousel.vue'
+import SponsorCarrousel from '@/components/home/SponsorCarrousel.vue'
 @Component({
   components: {
     DefaultLayout,
-    ContentCreatorsCarrousel
+    ContentCreatorsCarrousel,
+    SponsorCarrousel
   }
 })
 export default class Home extends Vue {
