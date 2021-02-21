@@ -1,7 +1,7 @@
 
-export const API_URL = process.env.API_URL
-export const API_TOKEN = process.env.API_KEY
+export const API_URL = process.env.VUE_APP_API_URL
+export const API_TOKEN = process.env.VUE_APP_API_TOKEN
 export const URLs = {
-  CONTENT_CREATORS: 'content_creators'
+  CONTENT_CREATORS: 'content-creators'
 }
 export default URLs

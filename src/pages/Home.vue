@@ -14,7 +14,7 @@
         </p>
         <div class="buttons  is-justify-content-center are-large">
           <router-link class="button is-primary" :to="{ path: './Register.vue'}">
-
+            {{$t('register')}}
           </router-link>
            <a href="" class="button is-primary is-inverted ">
             Iniciar sesión
@@ -22,7 +22,7 @@
         </div>
 
       <!--### Content creators coroussel ### -->
-
+      <ContentCreatorsCarrousel/>
       <!--### END Content creators coroussel ### -->
 
       <!--### Websites coroussel ### -->
@@ -42,9 +42,11 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import DefaultLayout from '@/components/layout/DefaultLayout.vue'
+import ContentCreatorsCarrousel from '@/components/home/ContentCreatorsCarrousel.vue'
 @Component({
   components: {
-    DefaultLayout
+    DefaultLayout,
+    ContentCreatorsCarrousel
   }
 })
 export default class Home extends Vue {
