@@ -1,6 +1,7 @@
 <template>
     <section>
         <div class="example-component">
+          <h1>dss</h1>
             <b-field grouped group-multiline>
                 <div class="control">
                     <b-switch v-model="arrow">Arrow</b-switch>
@@ -43,14 +44,16 @@
             :repeat="repeat"
             :has-drag="drag"
             :has-grayscale="gray"
-            :has-opacity="opacity" />
+            :has-opacity="opacity" /> -->
+
+            </div>
     </section>
 </template>
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
 
-@Component
+// @Component()
 export default class SecondaryCarousel extends Vue {
   arrow: true,
   arrowHover: true,
@@ -65,41 +68,44 @@ export default class SecondaryCarousel extends Vue {
 //   declare const items: {
 //     title: string;
 //     image: string;
-//   }[];
+//   }[]
 
-//   items: [
-//     {
-//         title: 'Slide 1',
-//         image: 'https://picsum.photos1230/500'
-//     },
-//     {
-//         title: 'Slide 2',
-//         image: 'https://picsum.photos1230/500'
-//     },
-//     {
-//         title: 'Slide 3',
-//         image: 'https://picsum.photos1230/500'
-//     },
-//     {
-//         title: 'Slide 4',
-//         image: 'https://picsum.photos1230/500'
-//     },
-//     {
-//         title: 'Slide 5',
-//         image: 'https://picsum.photos1230/500'
-//     },
-//     {
-//         title: 'Slide 6',
-//         image: 'https://picsum.photos1230/500'
-//     },
-//     {
-//         title: 'Slide 7',
-//         image: 'https://picsum.photos1230/500'
-//     },
-//     {
-//         title: 'Slide 8',
-//         image: 'https://picsum.photos1230/500'
-//     },
-// }
-</script>
+
+  items = [
+    {
+        title: 'Slide 1',
+        image:  'https://picsum.photos1230/500'
+    },
+    {
+        title: 'Slide 2',
+        image: 'https://picsum.photos1230/500'
+    },
+    {
+        title: 'Slide 3',
+        image: 'https://picsum.photos1230/500'
+    },
+    {
+        title: 'Slide 4',
+        image: 'https://picsum.photos1230/500'
+    },
+    {
+        title: 'Slide 5',
+        image: 'https://picsum.photos1230/500'
+    },
+    {
+        title: 'Slide 6',
+        image: 'https://picsum.photos1230/500'
+    },
+    {
+        title: 'Slide 7',
+        image: 'https://picsum.photos1230/500'
+    },
+    {
+        title: 'Slide 8',
+        image: 'https://picsum.photos1230/500'
+    },
+  ]
+}
+//
+ </script>
 
