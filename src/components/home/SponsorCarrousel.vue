@@ -2,7 +2,7 @@
   <div>
     <h1>Sponsor Creators</h1>
     <b-carousel class="px-0 mx-0"
-    :autoplay="autoplay"
+      :autoplay="autoPlay"
     >
         <b-carousel-item class="px-0 mx-0" v-for="(carousel, i) in carousels" :key="i" :autoplay="autoplay">
           <div class="columns is-centered mx-0">
@@ -25,13 +25,16 @@ import { Vue, Component } from 'vue-property-decorator'
 export default class ContentCreatorsCarrousel extends Vue {
   pageOptions = new RequestOptions()
   creators:ContentCreator[] = []
-  autoplay: false
-  // repeat: false
+  autoPlay = false
+  // repeat = false
 
    carousels = [
      {
        page: 1,
        contentCreators: [{
+         image: 'https://via.placeholder.com/150'
+       },
+       {
          image: 'https://via.placeholder.com/150'
        },
        {
@@ -76,12 +79,18 @@ export default class ContentCreatorsCarrousel extends Vue {
        },
        {
          image: 'https://via.placeholder.com/150'
+       },
+       {
+         image: 'https://via.placeholder.com/150'
        }
        ]
      },
      {
        page: 3,
        contentCreators: [{
+         image: 'https://via.placeholder.com/150'
+       },
+       {
          image: 'https://via.placeholder.com/150'
        },
        {
@@ -126,12 +135,18 @@ export default class ContentCreatorsCarrousel extends Vue {
        },
        {
          image: 'https://via.placeholder.com/150'
+       },
+       {
+         image: 'https://via.placeholder.com/150'
        }
        ]
      },
      {
        page: 5,
        contentCreators: [{
+         image: 'https://via.placeholder.com/150'
+       },
+       {
          image: 'https://via.placeholder.com/150'
        },
        {
@@ -176,6 +191,9 @@ export default class ContentCreatorsCarrousel extends Vue {
        },
        {
          image: 'https://via.placeholder.com/150'
+       },
+       {
+         image: 'https://via.placeholder.com/150'
        }
        ]
      },
@@ -201,12 +219,18 @@ export default class ContentCreatorsCarrousel extends Vue {
        },
        {
          image: 'https://via.placeholder.com/150'
+       },
+       {
+         image: 'https://via.placeholder.com/150'
        }
        ]
      },
      {
        page: 8,
        contentCreators: [{
+         image: 'https://via.placeholder.com/150'
+       },
+       {
          image: 'https://via.placeholder.com/150'
        },
        {
