@@ -24,13 +24,12 @@
       <!--### Content creators coroussel ### -->
       <ContentCreatorsCarrousel/>
       <!--### END Content creators coroussel ### -->
-      <SponsorCarrousel/>
-      <!--### Websites coroussel ### -->
 
+      <!--### Websites coroussel ### -->
+      <SponsorCarrousel/>
       <!--### END Websites coroussel ### -->
 
       <!--### Clock ### -->
-
       <!--### END Clock ### -->
 
       </div>
