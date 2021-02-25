@@ -1,8 +1,7 @@
 <template lang="html">
   <div>
-    <p v-if="currentTime.total">
-      {{ `${currentTime.days} dias ${currentTime.hours} :
-            ${currenTime.minutes}:${currenTime.seconds}` }}
+    <p v-if="currentTime.total" class="title is-1">
+      {{ `${currentTime.days} dias ${currentTime.hours}:${currentTime.minutes}:${currentTime.seconds}` }}
     </p>
   </div>
 </template>
@@ -22,16 +21,23 @@ interface Time{
 
 })
 export default class ForgotPassword extends Vue {
-currentTime:Time = {};
+currentTime:Time = {
+  total: 0,
+  days: 0,
+  hours: 0,
+  minutes: 0,
+  seconds: 0
+};
 
 @Prop({ type: String, required: true }) readonly deadline!: string;
 @Prop({ type: Number, required: true }) readonly speed!: number;
 
 mounted ():void {
+  console.log('CLOCK COMPONENT MOUNTED')
   setTimeout(this.countdown, 1000)
 }
 
-countdown () {
+countdown ():void {
   const t = Date.parse(this.deadline) - new Date().getTime()
   const seconds = Math.floor((t / 1000) % 60)
   const minutes = Math.floor((t / 1000 / 60) % 60)
