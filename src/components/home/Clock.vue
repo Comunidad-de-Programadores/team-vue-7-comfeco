@@ -1,10 +1,43 @@
-<template lang="html">
-  <p v-if="currentTime.total" class="title is-1">
-    {{
-      `${currentTime.days} días ${currentTime.hours}:${currentTime.minutes}:${currentTime.seconds}`
-    }}
-  </p>
+<template lang="HTML" >
+  <div v-if="currentTime.total" class="has-background-grey-light">
+    <div class="columns">
+      <div class="column">
+        <p class="title is-1">
+          {{currentTime.days}}
+        </p>
+        <p class="subtitle is-4">
+            DIAS
+         </p>
+
+      </div>
+      <div class="column">
+        <p class="title is-1">
+          {{currentTime.hours}}
+        </p>
+        <p class="subtitle is-4">
+            HORAS
+         </p>
+      </div>
+      <div class="column">
+        <p class="title is-1">
+          {{currentTime.minutes}}
+        </p>
+        <p class="subtitle is-4">
+            MINUTOS
+         </p>
+      </div>
+      <div class="column">
+        <p class="title is-1">
+          {{currentTime.seconds}}
+        </p>
+        <p class="subtitle is-4">
+            SEGUNDOS
+         </p>
+      </div>
+    </div>
+  </div>
 </template>
+
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator'
 
@@ -17,7 +50,7 @@ interface Time {
 }
 
 @Component({})
-export default class ForgotPassword extends Vue {
+export default class Clock extends Vue {
   // VARIABLES
   currentTime: Time = {
     total: 0,

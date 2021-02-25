@@ -47,7 +47,7 @@ import { Component, Vue } from 'vue-property-decorator'
 import DefaultLayout from '@/components/layout/DefaultLayout.vue'
 import ContentCreatorsCarrousel from '@/components/home/ContentCreatorsCarrousel.vue'
 import SponsorCarrousel from '@/components/home/SponsorCarrousel.vue'
-import Clock from '@/components/Clock.vue'
+import Clock from '@/components/home/Clock.vue'
 
 @Component({
   components: {
