@@ -1,13 +1,16 @@
 <template lang="HTML">
   <div>
     <h1>Remote Cretors</h1>
-    <b-carousel>
+    <b-carousel :interval="3000">
         <b-carousel-item v-for="(carousel, i) in carousels" :key="i">
           <div class="columns p-4">
-            <div v-for="(image, j) in carousel.contentCreators" :key="j" class="column is-4  "  >
-              <figure class="image is-128x128 has-text-centered">
-                <img :src="image.image" class="is-rounded " alt="">
-              </figure>
+            <div v-for="(image, j) in carousel.contentCreators" :key="j" class="column is-3  "  >
+              <div class="box p-0">
+                <img :src="image.image" alt="" style="width:100%">
+                  <p class="title pb-4 is-4">
+                    {{image.name }}
+                  </p>
+              </div>
             </div>
           </div>
         </b-carousel-item>
@@ -28,12 +31,23 @@ export default class ContentCreatorsCarrousel extends Vue {
      {
        page: 1,
        contentCreators: [{
+         name: 'Lorem',
          image: 'https://via.placeholder.com/150'
        },
        {
+         name: 'Lorem',
+
          image: 'https://via.placeholder.com/150'
        },
        {
+         name: 'Lorem',
+
+         image: 'https://via.placeholder.com/150'
+       },
+
+       {
+         name: 'Lorem',
+
          image: 'https://via.placeholder.com/150'
        }
        ]
@@ -48,12 +62,18 @@ export default class ContentCreatorsCarrousel extends Vue {
        },
        {
          image: 'https://via.placeholder.com/150'
+       },
+       {
+         image: 'https://via.placeholder.com/150'
        }
        ]
      },
      {
        page: 4,
        contentCreators: [{
+         image: 'https://via.placeholder.com/150'
+       },
+       {
          image: 'https://via.placeholder.com/150'
        },
        {

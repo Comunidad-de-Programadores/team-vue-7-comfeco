@@ -1,6 +1,6 @@
 <template lang="HTML">
   <div>
-    <h1>Sponsor Creators</h1>
+    <h1 class="title hast-text-left">Sponsors </h1>
     <b-carousel class="px-0 mx-0"
       :autoplay="autoPlay"
     >
@@ -277,4 +277,8 @@ export default class ContentCreatorsCarrousel extends Vue {
    }
 }
 </script>
-<style lang=""></style>
+<style lang="">
+.is-one-eghh{
+  width: 12.5;
+}
+</style>
