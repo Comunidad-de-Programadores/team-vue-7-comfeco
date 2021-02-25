@@ -4,11 +4,9 @@
   </div>
 </template>
 
-<script>
-
-    
-Vue.component("Timer", {
-  template: "#timer",
+<script lang="js">
+export default {
+  template: '#timer',
   props: {
     deadline: {
       type: String,
@@ -19,21 +17,21 @@ Vue.component("Timer", {
       default: 1000
     }
   },
-  data() {
+  data () {
     return {
       currentTime: null
-    };
+    }
   },
-  mounted() {
-    setTimeout(this.countdown, 1);
+  mounted () {
+    setTimeout(this.countdown, 1)
   },
   methods: {
-    countdown() {
-      let t = Date.parse(this.deadline) - Date.parse(new Date());
-      let seconds = Math.floor((t / 1000) % 60);
-      let minutes = Math.floor((t / 1000 / 60) % 60);
-      let hours = Math.floor((t / (1000 * 60 * 60)) % 24);
-      let days = Math.floor(t / (1000 * 60 * 60 * 24));
+    countdown () {
+      const t = Date.parse(this.deadline) - Date.parse(new Date())
+      const seconds = Math.floor((t / 1000) % 60)
+      const minutes = Math.floor((t / 1000 / 60) % 60)
+      const hours = Math.floor((t / (1000 * 60 * 60)) % 24)
+      const days = Math.floor(t / (1000 * 60 * 60 * 24))
       if (t > 0) {
         this.currentTime = {
           total: t,
@@ -41,17 +39,13 @@ Vue.component("Timer", {
           hours: hours,
           minutes: minutes,
           seconds: seconds
-        };
-        setTimeout(this.countdown, this.speed);
+        }
+        setTimeout(this.countdown, this.speed)
       } else {
-        this.currentTime = null;
+        this.currentTime = null
       }
     }
   }
-});
-
-const app = new Vue({
-  el: "#app"
-});
+}
 
 </script>
