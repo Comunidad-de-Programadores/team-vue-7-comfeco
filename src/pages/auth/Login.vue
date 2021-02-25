@@ -6,7 +6,6 @@
       {{ $t("login-form.title") }}
     </h1>
     <div class="box">
-
       <validation-observer ref="observer" v-slot="{ handleSubmit }">
         <validation-provider
           name="Email"

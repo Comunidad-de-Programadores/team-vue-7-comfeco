@@ -6,8 +6,6 @@
     </p>
   </div>
 
-
-
 </default-layout>
 </template>
 
