@@ -1,9 +1,7 @@
 <template lang="html">
-  <div>
     <p v-if="currentTime.total" class="title is-1">
-      {{ `${currentTime.days} dias ${currentTime.hours}:${currentTime.minutes}:${currentTime.seconds}` }}
+      {{ `${currentTime.days} días ${currentTime.hours}:${currentTime.minutes}:${currentTime.seconds}` }}
     </p>
-  </div>
 </template>
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator'
