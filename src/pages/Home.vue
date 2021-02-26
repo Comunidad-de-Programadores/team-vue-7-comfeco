@@ -22,8 +22,12 @@
           <SponsorCarrousel />
           <!--### END Websites coroussel ### -->
 
-          <!--### Clock ### -->
-          <!--### END Clock ### -->
+      <!--### Clock ### -->
+      <div class="py-6">
+      <Clock :deadline="'Mar 15, 2021'" :speed="1000"/>
+
+      </div>
+      <!--### END Clock ### -->
 
         </div>
       </div>
@@ -36,9 +40,12 @@ import { Component, Vue } from 'vue-property-decorator'
 import DefaultLayout from '@/components/layout/DefaultLayout.vue'
 import ContentCreatorsCarrousel from '@/components/home/ContentCreatorsCarrousel.vue'
 import SponsorCarrousel from '@/components/home/SponsorCarrousel.vue'
+import Clock from '@/components/home/Clock.vue'
+
 @Component({
   components: {
     DefaultLayout,
+    Clock,
     ContentCreatorsCarrousel,
     SponsorCarrousel
   }

@@ -12,7 +12,7 @@ Sponsors
     <b-carousel class="px-0 mx-0"
       :autoplay="autoPlay"
     >
-        <b-carousel-item class="px-0 mx-0" v-for="(carousel, i) in carousels" :key="i" :autoplay="autoplay">
+        <b-carousel-item class="px-0 mx-0" v-for="(carousel, i) in carousels" :key="i">
           <div class="columns is-centered mx-0">
             <div v-for="(image, j) in carousel.contentCreators" :key="j" class="column is-1 px-0 py-6"  >
               <figure class="image px-4 py-4 is-128x128 has-text-centered">
@@ -286,7 +286,7 @@ export default class ContentCreatorsCarrousel extends Vue {
 }
 </script>
 <style lang="scss">
-.is-one-egih{
+.is-one-egh{
   width: 12.5;
 }
 </style>

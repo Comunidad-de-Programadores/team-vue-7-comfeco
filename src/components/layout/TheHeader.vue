@@ -48,7 +48,7 @@
           </b-navbar-dropdown>
 
         </div>
-      </b-navbar-item>
+      </b-navbar-item >
     </template>
   </b-navbar>
 </template>
