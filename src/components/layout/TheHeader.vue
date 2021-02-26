@@ -1,100 +1,73 @@
 <template lang="html">
-    <b-navbar :fixed-top="true" centered spaced>
-      <template #brand>
-        <b-navbar-item
-          class="is-size-4 has-text-link has-text-weight-bold"
-          tag="router-link"
-          :to="{ path: '/' }"
-        >
-          Eventer
-        </b-navbar-item>
-      </template>
-      <template v-slot:start>
-  <b-navbar-item
-    tag="a"
-    active
-  >
-    Inicio
-  </b-navbar-item>
-  <b-navbar-item tag="a">
-    Comunidades
-  </b-navbar-item>
-  <b-navbar-item tag="a">
-    Talleres
-  </b-navbar-item>
-  <b-navbar-item tag="a">
-    Creadores de Contenido
-  </b-navbar-item>
-</template>
-      <template #end>
-  <div
-    class="is-flex"
-    v-if="currentUser"
-  >
-    <b-dropdown>
-      <template #trigger>
-        <div class="is-flex is-align-items-center">
-          <figure class="image is-48x48 mr-4">
-            <img
-              class="is-rounded"
-              :src="userAvatarImage"
-              alt=""
-            >
-          </figure>
-          <p>{{currentUserInfo.nickName}}</p>
-        </div>
-
-      </template>
-      <b-dropdown-item aria-role="listitem"> <span @click="logOut()">Log out </span> </b-dropdown-item>
-    </b-dropdown>
-
-    <b-navbar-dropdown :label="'Lang: ' + $i18n.locale.toLocaleUpperCase()">
-      <b-navbar-item @click="$i18n.locale = 'es'">
-        Español
-      </b-navbar-item>
+  <b-navbar :fixed-top="true" centered spaced>
+    <template #brand>
       <b-navbar-item
-        href="#"
-        @click="$i18n.locale = 'en'"
+        class="is-size-4 has-text-link has-text-weight-bold"
+        tag="router-link"
+        :to="{ path: '/' }"
       >
-        English
+        Eventer
       </b-navbar-item>
-    </b-navbar-dropdown>
-  </div>
+    </template>
+    <template v-slot:start>
+      <b-navbar-item tag="a" active>
+        Inicio
+      </b-navbar-item>
+      <b-navbar-item tag="a">
+        Comunidades
+      </b-navbar-item>
+      <b-navbar-item tag="a">
+        Talleres
+      </b-navbar-item>
+      <b-navbar-item tag="a">
+        Creadores de Contenido
+      </b-navbar-item>
+    </template>
+    <template #end>
+      <div class="is-flex" v-if="currentUser">
+        <b-dropdown>
+          <template #trigger>
+            <div class="is-flex is-align-items-center">
+              <figure class="image is-48x48 mr-4">
+                <img class="is-rounded" :src="userAvatarImage" alt="" />
+              </figure>
+              <p>{{ currentUserInfo.nickName }}</p>
+            </div>
+          </template>
+          <b-dropdown-item aria-role="listitem">
+            <span @click="logOut()">Log out </span>
+          </b-dropdown-item>
+        </b-dropdown>
 
-  <div
-    class="buttons"
-    v-if="!currentUser"
-  >
-    <router-link
-      class="button is-primary"
-      :to="{ name: 'login' }"
-    >
-      <strong>{{$t('login')}} </strong>
-    </router-link>
+        <b-navbar-dropdown :label="'Lang: ' + $i18n.locale.toLocaleUpperCase()">
+          <b-navbar-item @click="$i18n.locale = 'es'">
+            Español
+          </b-navbar-item>
+          <b-navbar-item href="#" @click="$i18n.locale = 'en'">
+            English
+          </b-navbar-item>
+        </b-navbar-dropdown>
+      </div>
 
-    <router-link
-      class="button"
-      :to="{ name: 'register' }"
-    >
-      <strong>{{$t('register')}} </strong>
-    </router-link>
-    <div
-      class="is-divider-vertical"
-      data-content=""
-    ></div>
-    <b-navbar-dropdown :label="'Lang: ' + $i18n.locale.toLocaleUpperCase()">
-      <b-navbar-item @click="$i18n.locale = 'es'">
-        Español
-      </b-navbar-item>
-      <b-navbar-item
-        href="#"
-        @click="$i18n.locale = 'en'"
-      >
-        English
-      </b-navbar-item>
-    </b-navbar-dropdown>
-  </div>
-</template>
+      <div class="buttons" v-if="!currentUser">
+        <router-link class="button is-primary" :to="{ name: 'login' }">
+          <strong>{{ $t("login") }} </strong>
+        </router-link>
+
+        <router-link class="button" :to="{ name: 'register' }">
+          <strong>{{ $t("register") }} </strong>
+        </router-link>
+        <div class="is-divider-vertical" data-content=""></div>
+        <b-navbar-dropdown :label="'Lang: ' + $i18n.locale.toLocaleUpperCase()">
+          <b-navbar-item @click="$i18n.locale = 'es'">
+            Español
+          </b-navbar-item>
+          <b-navbar-item href="#" @click="$i18n.locale = 'en'">
+            English
+          </b-navbar-item>
+        </b-navbar-dropdown>
+      </div>
+    </template>
   </b-navbar>
 </template>
 <script lang="ts">
