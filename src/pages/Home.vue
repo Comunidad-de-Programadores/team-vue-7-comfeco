@@ -2,40 +2,33 @@
 
   <default-layout>
 
-  <section class="hero is-fullheight-with-navbar">
-    <div class="hero-body">
-      <div class="container has-text-centered">
-        <p class="subtitle is-4">Bienvenido a </p>
-        <p class="title is-1 has-text-weight-bold">
-          Eventer
-        </p>
-        <p class="subtitle is-3">
-          Una web para manejo de eventos
-        </p>
-        <div class="buttons  is-justify-content-center are-large">
-          <router-link class="button is-primary" :to="{ path: './Register.vue'}">
-            {{$t('register')}}
-          </router-link>
-           <a href="" class="button is-primary is-inverted ">
-            Iniciar sesión
-          </a>
+    <section class="hero is-fullheight-with-navbar">
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <p class="subtitle is-4">Bienvenido a </p>
+          <p class="title is-1 has-text-weight-bold">
+            Comunity Fest and code
+          </p>
+          <p class="subtitle is-3">
+            ¡Conoce aprende y gana!
+          </p>
+          <p class="subtitle ">
+            La próxima edición regresa en el 2022, en la cual se planea involucrar a todos los programadores independientmente del area de conocimiento que se encuentre, todo con un mismo proposito aprender en comunidad. </p>
+          <!--### Content creators coroussel ### -->
+          <ContentCreatorsCarrousel />
+          <!--### END Content creators coroussel ### -->
+
+          <!--### Websites coroussel ### -->
+          <SponsorCarrousel />
+          <!--### END Websites coroussel ### -->
+
+          <!--### Clock ### -->
+          <!--### END Clock ### -->
+
         </div>
-
-      <!--### Content creators coroussel ### -->
-      <ContentCreatorsCarrousel/>
-      <!--### END Content creators coroussel ### -->
-
-      <!--### Websites coroussel ### -->
-      <SponsorCarrousel/>
-      <!--### END Websites coroussel ### -->
-
-      <!--### Clock ### -->
-      <!--### END Clock ### -->
-
       </div>
-    </div>
-  </section>
-    </default-layout>
+    </section>
+  </default-layout>
 </template>
 
 <script lang="ts">

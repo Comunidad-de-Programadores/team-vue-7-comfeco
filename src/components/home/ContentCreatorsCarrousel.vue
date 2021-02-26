@@ -1,9 +1,9 @@
 <template lang="HTML">
   <div>
-    <h1>Remote Cretors</h1>
+    <h1 class="has-text-centered title is-3 ">Ellos ya creen en esta iniciativa:</h1>
     <b-carousel :interval="3000">
         <b-carousel-item v-for="(carousel, i) in carousels" :key="i">
-          <div class="columns p-4">
+          <div class="columns p-3">
             <div v-for="(image, j) in carousel.contentCreators" :key="j" class="column is-3  "  >
               <div class="box p-0">
                 <img :src="image.image" alt="" style="width:100%">

@@ -1,6 +1,14 @@
 <template lang="HTML">
-  <div>
-    <h1 class="title hast-text-left">Sponsors </h1>
+  <div class="py-6">
+    <div class="is-flex is-justify-content-space-between">
+      <span class="title is-3">
+Sponsors
+      </span>
+
+      <a href="" class="button is-large is-primary">
+        Apoyar Inciativa
+      </a>
+    </div>
     <b-carousel class="px-0 mx-0"
       :autoplay="autoPlay"
     >
@@ -277,8 +285,8 @@ export default class ContentCreatorsCarrousel extends Vue {
    }
 }
 </script>
-<style lang="">
-.is-one-eghh{
+<style lang="scss">
+.is-one-egih{
   width: 12.5;
 }
 </style>
