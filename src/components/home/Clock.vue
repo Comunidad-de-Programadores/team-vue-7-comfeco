@@ -1,5 +1,8 @@
 <template lang="HTML" >
-  <div v-if="currentTime.total" class="has-background-grey-light">
+  <div v-if="currentTime.total" class="">
+    <p class="has-text-centered title is-3 mb-6">
+      Preparate lo bueno esta por venir
+    </p>
     <div class="columns">
       <div class="column">
         <p class="title is-1">

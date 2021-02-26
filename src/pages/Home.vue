@@ -4,7 +4,7 @@
 
     <section class="hero is-fullheight-with-navbar">
       <div class="hero-body">
-        <div class="container has-text-centered">
+        <div class="container is-max-widescreen has-text-centered">
           <p class="subtitle is-4">Bienvenido a </p>
           <p class="title is-1 has-text-weight-bold">
             Comunity Fest and code

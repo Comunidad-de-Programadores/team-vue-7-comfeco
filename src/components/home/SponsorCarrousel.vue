@@ -6,7 +6,7 @@ Sponsors
       </span>
 
       <a href="" class="button is-large is-primary">
-        Apoyar Inciativa
+        Apoyar Iniciativa
       </a>
     </div>
     <b-carousel class="px-0 mx-0"
@@ -14,8 +14,8 @@ Sponsors
     >
         <b-carousel-item class="px-0 mx-0" v-for="(carousel, i) in carousels" :key="i">
           <div class="columns is-centered mx-0">
-            <div v-for="(image, j) in carousel.contentCreators" :key="j" class="column is-1 px-0 py-6"  >
-              <figure class="image px-4 py-4 is-128x128 has-text-centered">
+            <div v-for="(image, j) in carousel.contentCreators" :key="j" class=" p-4 column  py-6"  >
+              <figure class="image is-96x96 has-text-centered">
                 <img :src="image.image" class="is-rounded" alt="">
               </figure>
             </div>
@@ -123,118 +123,6 @@ export default class ContentCreatorsCarrousel extends Vue {
      },
      {
        page: 4,
-       contentCreators: [{
-         image: 'https://via.placeholder.com/150'
-       },
-       {
-         image: 'https://via.placeholder.com/150'
-       },
-       {
-         image: 'https://via.placeholder.com/150'
-       },
-       {
-         image: 'https://via.placeholder.com/150'
-       },
-       {
-         image: 'https://via.placeholder.com/150'
-       },
-       {
-         image: 'https://via.placeholder.com/150'
-       },
-       {
-         image: 'https://via.placeholder.com/150'
-       },
-       {
-         image: 'https://via.placeholder.com/150'
-       }
-       ]
-     },
-     {
-       page: 5,
-       contentCreators: [{
-         image: 'https://via.placeholder.com/150'
-       },
-       {
-         image: 'https://via.placeholder.com/150'
-       },
-       {
-         image: 'https://via.placeholder.com/150'
-       },
-       {
-         image: 'https://via.placeholder.com/150'
-       },
-       {
-         image: 'https://via.placeholder.com/150'
-       },
-       {
-         image: 'https://via.placeholder.com/150'
-       },
-       {
-         image: 'https://via.placeholder.com/150'
-       },
-       {
-         image: 'https://via.placeholder.com/150'
-       }
-       ]
-     },
-     {
-       page: 6,
-       contentCreators: [{
-         image: 'https://via.placeholder.com/150'
-       },
-       {
-         image: 'https://via.placeholder.com/150'
-       },
-       {
-         image: 'https://via.placeholder.com/150'
-       },
-       {
-         image: 'https://via.placeholder.com/150'
-       },
-       {
-         image: 'https://via.placeholder.com/150'
-       },
-       {
-         image: 'https://via.placeholder.com/150'
-       },
-       {
-         image: 'https://via.placeholder.com/150'
-       },
-       {
-         image: 'https://via.placeholder.com/150'
-       }
-       ]
-     },
-     {
-       page: 7,
-       contentCreators: [{
-         image: 'https://via.placeholder.com/150'
-       },
-       {
-         image: 'https://via.placeholder.com/150'
-       },
-       {
-         image: 'https://via.placeholder.com/150'
-       },
-       {
-         image: 'https://via.placeholder.com/150'
-       },
-       {
-         image: 'https://via.placeholder.com/150'
-       },
-       {
-         image: 'https://via.placeholder.com/150'
-       },
-       {
-         image: 'https://via.placeholder.com/150'
-       },
-       {
-         image: 'https://via.placeholder.com/150'
-       }
-       ]
-     },
-     {
-       page: 8,
        contentCreators: [{
          image: 'https://via.placeholder.com/150'
        },

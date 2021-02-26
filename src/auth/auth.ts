@@ -1,4 +1,4 @@
-import { firebaseAuth, DB } from '@/firebase/firebaseapp'
+import { firebaseAuth, firebaseDB } from '@/firebase/firebaseapp'
 import { AuthRequest, RegisterRequest } from '@/models/AuthRequest'
 
 export class Auth {
@@ -19,7 +19,7 @@ export class Auth {
       // Un sing user
       await this.signOut()
       // save on firebase store
-      return DB.collection('users').add(Object.assign({}, data)).then(() => {
+      return firebaseDB.collection('users').add(Object.assign({}, data)).then(() => {
         return data
       })
     })
@@ -51,8 +51,18 @@ export class Auth {
     return firebaseAuth.currentUser
   }
 
+  /**
+ * Seign out method
+ */
   signOut () : Promise<void> {
     return firebaseAuth.signOut()
+  }
+
+  /**
+   * OnStateChange method
+   */
+  onAuthChange ():any {
+    return firebaseAuth.onAuthStateChanged
   }
 }
 
