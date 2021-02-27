@@ -10,8 +10,8 @@
       </b-navbar-item>
     </template>
     <template v-slot:start>
-      <b-navbar-item tag="a" active>
-        Inicio
+      <b-navbar-item tag="a" :active="currentRoute == 'home'">
+        router
       </b-navbar-item>
       <b-navbar-item tag="a">
         Comunidades
@@ -82,6 +82,10 @@ export default class TheHeader extends Vue {
 
   get currentUser (): any {
     return Auth.getCurrentUser()
+  }
+
+  get currentRoute () {
+    return this.$route.name
   }
 
   get userAvatarImage (): string {

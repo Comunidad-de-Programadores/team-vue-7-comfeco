@@ -22,12 +22,11 @@
           <SponsorCarrousel />
           <!--### END Websites coroussel ### -->
 
-      <!--### Clock ### -->
-      <div class="py-6">
-      <Clock :deadline="'Mar 15, 2021'" :speed="1000"/>
-
-      </div>
-      <!--### END Clock ### -->
+          <!--### Clock ### -->
+            <div class="py-6">
+              <Clock :deadline="'Mar 15, 2021'" :speed="1000"/>
+            </div>
+          <!--### END Clock ### -->
 
         </div>
       </div>
