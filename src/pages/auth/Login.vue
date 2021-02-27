@@ -75,7 +75,7 @@ export default class Login extends Form {
     try {
       await firebaseApp.auth().signInWithEmailAndPassword(this.username, this.password)
       this.loading = false
-      this.$router.push({ name: 'dashboard' })
+      this.$router.push({ name: 'home' })
     } catch (e) {
       this.loading = false
       console.error(e)
