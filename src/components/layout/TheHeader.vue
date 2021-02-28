@@ -10,64 +10,107 @@
       </b-navbar-item>
     </template>
     <template v-slot:start>
-      <b-navbar-item tag="a" :active="currentRoute == 'home'">
-        router
-      </b-navbar-item>
-      <b-navbar-item tag="a">
-        Comunidades
-      </b-navbar-item>
-      <b-navbar-item tag="a">
-        Talleres
-      </b-navbar-item>
-      <b-navbar-item tag="a">
-        Creadores de Contenido
-      </b-navbar-item>
-    </template>
+  <b-navbar-item
+    href=""
+    tag="a"
+    active
+  >
+    Home
+  </b-navbar-item>
+  <b-navbar-item tag="a">
+    Comunidades
+  </b-navbar-item>
+  <b-navbar-item tag="a">
+    Talleres
+  </b-navbar-item>
+  <b-navbar-item tag="a">
+    Creadores de Contenido
+  </b-navbar-item>
+</template>
     <template #end>
-      <div class="is-flex" v-if="currentUser">
-        <b-dropdown>
-          <template #trigger>
-            <div class="is-flex is-align-items-center">
-              <figure class="image is-48x48 mr-4">
-                <img class="is-rounded" :src="userAvatarImage" alt="" />
-              </figure>
-              <p>{{ currentUserInfo.nickName }}</p>
-            </div>
-          </template>
-          <b-dropdown-item aria-role="listitem">
-            <span @click="logOut()">Log out </span>
-          </b-dropdown-item>
-        </b-dropdown>
+  <div
+    class="is-flex"
+    v-if="currentUserInfo!=null"
+  >
+    <b-dropdown>
+      <template #trigger>
+        <div class="is-flex is-align-items-center">
+          <figure class="image is-48x48 mr-4">
+            <img
+              class="is-rounded"
+              :src="userAvatarImage"
+              alt=""
+            />
+          </figure>
+          <p>{{currentUserInfo.nickName }}</p>
+        </div>
+      </template>
+      <b-dropdown-item aria-role="listitem">
 
-        <b-navbar-dropdown :label="'Lang: ' + $i18n.locale.toLocaleUpperCase()">
-          <b-navbar-item @click="$i18n.locale = 'es'">
-            Español
-          </b-navbar-item>
-          <b-navbar-item href="#" @click="$i18n.locale = 'en'">
-            English
-          </b-navbar-item>
-        </b-navbar-dropdown>
-      </div>
+        <router-link :to="{name:'Profile'}" class="media">
 
-      <div class="buttons" v-if="!currentUser">
-        <router-link class="button is-primary" :to="{ name: 'login' }">
-          <strong>{{ $t("login") }} </strong>
+          <b-icon class="media-left" icon="account"></b-icon>
+          <div class="media-content">
+            <h3>My Profile</h3>
+          </div>
         </router-link>
+      </b-dropdown-item>
+      <hr
+        class="dropdown-divider"
+        aria-role="menuitem"
+      >
+      <b-dropdown-item aria-role="listitem">
+        <span @click="logOut()">Log out </span>
+      </b-dropdown-item>
+    </b-dropdown>
 
-        <router-link class="button" :to="{ name: 'register' }">
-          <strong>{{ $t("register") }} </strong>
-        </router-link>
-        <div class="is-divider-vertical" data-content=""></div>
-        <b-navbar-dropdown :label="'Lang: ' + $i18n.locale.toLocaleUpperCase()">
-          <b-navbar-item @click="$i18n.locale = 'es'">
-            Español
-          </b-navbar-item>
-          <b-navbar-item href="#" @click="$i18n.locale = 'en'">
-            English
-          </b-navbar-item>
-        </b-navbar-dropdown>
-      </div>
-    </template>
+    <b-navbar-dropdown :label="'Lang: ' + $i18n.locale.toLocaleUpperCase()">
+      <b-navbar-item @click="$i18n.locale = 'es'">
+        Español
+      </b-navbar-item>
+      <b-navbar-item
+        href="#"
+        @click="$i18n.locale = 'en'"
+      >
+        English
+      </b-navbar-item>
+    </b-navbar-dropdown>
+  </div>
+
+  <div
+    class="buttons"
+    v-if="!currentUserInfo"
+  >
+    <router-link
+      class="button is-primary"
+      :to="{ name: 'login' }"
+    >
+      <strong>{{ $t("login") }} </strong>
+    </router-link>
+
+    <router-link
+      class="button"
+      :to="{ name: 'register' }"
+    >
+      <strong>{{ $t("register") }} </strong>
+    </router-link>
+    <div
+      class="is-divider-vertical"
+      data-content=""
+    ></div>
+    <b-navbar-dropdown :label="'Lang: ' + $i18n.locale.toLocaleUpperCase()">
+      <b-navbar-item @click="$i18n.locale = 'es'">
+        Español
+      </b-navbar-item>
+      <b-navbar-item
+        href="#"
+        @click="$i18n.locale = 'en'"
+      >
+        English
+      </b-navbar-item>
+    </b-navbar-dropdown>
+  </div>
+</template>
   </b-navbar>
 </template>
 <script lang="ts">
@@ -78,13 +121,13 @@ import Users from '@/api/users.ts'
 import User from '@/models/User.ts'
 @Component
 export default class TheHeader extends Vue {
-  currentUserInfo = new User();
+  currentUserInfo: User | null = null;
 
   get currentUser (): any {
     return Auth.getCurrentUser()
   }
 
-  get currentRoute () {
+  get currentRoute (): string | null | undefined {
     return this.$route.name
   }
 

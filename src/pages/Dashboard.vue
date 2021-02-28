@@ -1,12 +1,10 @@
 <template>
-<default-layout>
   <div class="dashboard">
     <p class="title">
       Dashboard
     </p>
   </div>
 
-</default-layout>
 </template>
 
 <script lang="ts">

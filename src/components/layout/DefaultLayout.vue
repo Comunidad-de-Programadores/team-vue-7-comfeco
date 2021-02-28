@@ -2,7 +2,6 @@
   <div>
     <TheHeader v-if="!hideNavbar"/>
     <slot></slot>
-
     <TheFooter/>
   </div>
 </template>

@@ -1,7 +1,5 @@
 <template>
 
-  <default-layout>
-
     <section class="hero is-fullheight-with-navbar">
       <div class="hero-body">
         <div class="container is-max-widescreen has-text-centered">
@@ -31,19 +29,16 @@
         </div>
       </div>
     </section>
-  </default-layout>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import DefaultLayout from '@/components/layout/DefaultLayout.vue'
 import ContentCreatorsCarrousel from '@/components/home/ContentCreatorsCarrousel.vue'
 import SponsorCarrousel from '@/components/home/SponsorCarrousel.vue'
 import Clock from '@/components/home/Clock.vue'
 
 @Component({
   components: {
-    DefaultLayout,
     Clock,
     ContentCreatorsCarrousel,
     SponsorCarrousel
