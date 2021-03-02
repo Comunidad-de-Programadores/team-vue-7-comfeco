@@ -2,7 +2,7 @@
   <div class="py-6">
     <div class="is-flex is-justify-content-space-between">
       <span class="title is-3">
-Sponsors
+        Sponsors
       </span>
 
       <a href="" class="button is-large is-primary">
