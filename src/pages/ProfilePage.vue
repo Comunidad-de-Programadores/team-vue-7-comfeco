@@ -6,10 +6,14 @@
               <ProfileTab/>
           </b-tab-item>
           <b-tab-item label="Insignias" icon="octagram">
+            <!---->
+          </b-tab-item>
+          <b-tab-item label="Grupos" icon="account-group">
 
           </b-tab-item>
-          <b-tab-item label="Grupos" icon="account-group"></b-tab-item>
-          <b-tab-item label="Eventos" icon="calendar"></b-tab-item>
+          <b-tab-item label="Eventos" icon="calendar">
+
+          </b-tab-item>
         </b-tabs>
       </div>
 
