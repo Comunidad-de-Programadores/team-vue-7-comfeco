@@ -9,7 +9,8 @@
     </div>
     <div class="column is-6 ">
       <!--RECENT ACTIVITY  GOES HERE-->
-      Actividad reciente
+      <Badges/>
+      <RecentActivities/>
       <!--END OF RECENT ACTIVITY-->
     </div>
     <div class="column is-3 pt-0">
@@ -23,8 +24,14 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-
-@Component
+import Badges from './Insignias.vue'
+import RecentActivities from './RecentActivities.vue'
+@Component({
+  components: {
+    Badges,
+    RecentActivities
+  }
+})
 export default class ProfileTab extends Vue {}
 </script>
 <style lang=""></style>
