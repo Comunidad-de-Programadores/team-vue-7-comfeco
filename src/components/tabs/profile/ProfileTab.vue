@@ -15,7 +15,7 @@
     <div class="column is-3 pt-0">
       <div class="box">
         <!--EVENTS  GOES HERE-->
-        Eventos
+        <ProfileTabEvents/>
         <!--END OF EVENTS-->
       </div>
     </div>
@@ -23,8 +23,12 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-
-@Component
+import ProfileTabEvents from './ProfileTabEvents.vue'
+@Component({
+  components: {
+    ProfileTabEvents
+  }
+})
 export default class ProfileTab extends Vue {}
 </script>
 <style lang=""></style>
