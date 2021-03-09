@@ -3,12 +3,12 @@
   <div class="column is-12">
     <p class="title is-4 mb-3">Insignias </p>
   </div>
-      <div class="column" v-for="item in badges">
-        <figure class="image is-128x128">
+      <div class="column is-text-center" v-for="item in badges" >
+        <figure class="image is-128x128" style="margin: 0px auto;">
           <b-image
-              :src=item.image
-              ratio="1by1"
-              rounded=true
+            :src="item.image"
+            ratio="1by1"
+            rounded=true
           ></b-image>
         </figure>
       </div>

@@ -24,7 +24,7 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import Badges from './Insignias.vue'
+import Badges from './Badges.vue'
 import ProfileTabEvents from './ProfileTabEvents.vue'
 import RecentActivities from './RecentActivities.vue'
 @Component({
