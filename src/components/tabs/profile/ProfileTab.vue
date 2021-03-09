@@ -9,14 +9,14 @@
     </div>
     <div class="column is-6 ">
       <!--RECENT ACTIVITY  GOES HERE-->
-      <Badges/>
-      <RecentActivities/>
+      <Badges />
+      <RecentActivities />
       <!--END OF RECENT ACTIVITY-->
     </div>
     <div class="column is-3 pt-0">
       <div class="box">
         <!--EVENTS  GOES HERE-->
-        <ProfileTabEvents/>
+        <ProfileTabEvents />
         <!--END OF EVENTS-->
       </div>
     </div>
