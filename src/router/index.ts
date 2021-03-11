@@ -27,6 +27,14 @@ const routes: Array<RouteConfig> = [
       requiresAuth: true
     }
   },
+  {
+    path: '/my-profile/edit',
+    name: 'edit-profile',
+    component: () => import(/* webpackChunkName: "dashboard" */ '../pages/EditProfilePage.vue'),
+    meta: {
+      requiresAuth: true
+    }
+  },
   ...AuthRoutes,
   {
     path: '*',

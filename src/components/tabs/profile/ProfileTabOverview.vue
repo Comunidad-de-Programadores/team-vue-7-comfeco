@@ -1,7 +1,7 @@
 <template lang="">
   <div class="box is-text-centered">
     <div class="is-flex is-justify-content-flex-end mb-3">
-      <router-link :to="{name:'edit-profile'}" > Editar perfil </router-link>
+      <router-link :to="{ name:'edit-profile'}" > Editar perfil </router-link>
     </div>
     <b-image
     style="margin:0px auto;"
