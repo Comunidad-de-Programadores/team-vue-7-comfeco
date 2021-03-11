@@ -12,6 +12,7 @@
 
           </b-tab-item>
           <b-tab-item label="Eventos" icon="calendar">
+            <EventsTab/>
 
           </b-tab-item>
         </b-tabs>
@@ -22,10 +23,12 @@
 <script>
 import { Component, Vue } from 'vue-property-decorator'
 import ProfileTab from '@/components/tabs/profile/ProfileTab'
+import EventsTab from '@/components/tabs/events/EventsTab'
 @Component({
   components:
     {
-      ProfileTab
+      ProfileTab,
+      EventsTab
     }
 })
 export default class ProfilePage extends Vue {
