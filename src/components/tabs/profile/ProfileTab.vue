@@ -1,11 +1,9 @@
 <template lang="">
   <div class="columns pt-6">
     <div class="column is-3 pt-0">
-      <div class="box">
         <!--PROFILE OVERVIEW GOES HERE-->
-        Perfil
+       <ProfileTabOverview />
         <!--END OF PROFILE OVERVIEW-->
-      </div>
     </div>
     <div class="column is-6 ">
       <!--RECENT ACTIVITY  GOES HERE-->
@@ -27,11 +25,13 @@ import { Component, Vue } from 'vue-property-decorator'
 import Badges from './Badges.vue'
 import ProfileTabEvents from './ProfileTabEvents.vue'
 import RecentActivities from './RecentActivities.vue'
+import ProfileTabOverview from './ProfileTabOverview.vue'
 @Component({
   components: {
     Badges,
     ProfileTabEvents,
-    RecentActivities
+    RecentActivities,
+    ProfileTabOverview
   }
 })
 export default class ProfileTab extends Vue {}

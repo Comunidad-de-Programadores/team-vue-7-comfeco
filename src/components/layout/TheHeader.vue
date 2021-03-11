@@ -117,8 +117,8 @@
 import { firebaseAuth } from '@/firebase/firebaseapp'
 import { Vue, Component } from 'vue-property-decorator'
 import Auth from '../../auth/auth'
-import Users from '@/api/users.ts'
-import User from '@/models/User.ts'
+import Users from '@/api/users'
+import User from '@/models/User'
 @Component
 export default class TheHeader extends Vue {
   currentUserInfo: User | null = null;
