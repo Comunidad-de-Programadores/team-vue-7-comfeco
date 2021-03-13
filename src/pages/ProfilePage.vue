@@ -6,7 +6,7 @@
               <ProfileTab/>
           </b-tab-item>
           <b-tab-item label="Insignias" icon="octagram">
-            <!---->
+              <BadgesTab/>
           </b-tab-item>
           <b-tab-item label="Grupos" icon="account-group">
 
@@ -24,11 +24,13 @@
 import { Component, Vue } from 'vue-property-decorator'
 import ProfileTab from '@/components/tabs/profile/ProfileTab'
 import EventsTab from '@/components/tabs/events/EventsTab'
+import BadgesTab from '@/components/tabs/badges/BadgesTab'
 @Component({
   components:
     {
       ProfileTab,
-      EventsTab
+      EventsTab,
+      BadgesTab
     }
 })
 export default class ProfilePage extends Vue {
