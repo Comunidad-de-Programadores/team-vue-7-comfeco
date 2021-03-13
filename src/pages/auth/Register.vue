@@ -111,7 +111,7 @@
 import { ValidationObserver, ValidationProvider } from 'vee-validate'
 import { Vue, Component } from 'vue-property-decorator'
 import Auth from '../../auth/auth'
-import { RegisterRequest } from '@/models/AuthRequest.ts'
+import { RegisterRequest } from '@/models/AuthRequest'
 
 @Component({
   components: { ValidationProvider, ValidationObserver }

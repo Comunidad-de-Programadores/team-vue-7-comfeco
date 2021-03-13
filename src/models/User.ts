@@ -1,10 +1,12 @@
 import { RegisterRequest } from './AuthRequest'
 
 export class User extends RegisterRequest {
-  profileImageUrl = ''
-  speciality = null
-  bio = null
-  socialLinks = []
+  id = ''
+  profileImageUrl? = ''
+  speciality? = null
+  bio? = null
+  birthDate? = ''
+  socialLinks? = []
 }
 
 export default User

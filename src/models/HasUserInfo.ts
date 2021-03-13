@@ -4,7 +4,7 @@ import User from '@/models/User'
 import Users from '@/api/users'
 
 export class HasUserInfo extends Vue {
-  currentUserInfo: User | null = null;
+  currentUserInfo = new User();
 
   get userAvatarImage (): string {
     return this.currentUserInfo
