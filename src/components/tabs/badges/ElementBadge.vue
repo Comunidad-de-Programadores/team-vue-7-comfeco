@@ -1,5 +1,5 @@
 <template lang="HTML">
-<div class="card" v-if="badge!=null">
+<div class="card">
   <div class="card-image has-text-centered mt-5">
     <figure class="image is-128x128 is-inline-block">
       <b-image
@@ -9,7 +9,7 @@
           ></b-image>
     </figure>
   </div>
-    <div class="card-content has-text-centered">
+    <div class="card-content has-text-centered" v-if="badge">
       <p class="title is-3 mb-4 ">{{badge.name}} </p>
       <p class="title is-5 mb-3 ">Descripcion </p>
       <div class="content">
@@ -34,8 +34,7 @@ import { Vue, Component, Prop } from 'vue-property-decorator'
 import { Badge } from '@/models/Badge'
 @Component({})
 export default class ElementBadge extends Vue {
-   @Prop() readonly badge: Badge | null = null
-   @Prop() readonly completed: boolean =false
+   @Prop() badge!: Badge
 }
 </script>
 <style lang=""></style>

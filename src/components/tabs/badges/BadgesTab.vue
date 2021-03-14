@@ -1,7 +1,7 @@
 <template lang="">
   <div class="columns pt-6">
-    <div class="column is-4 pt-0 " v-for="badge  in badges" :key="badge.id" >
-       <ElementBadge :badge="badge" :completed="badgeCompleted(badge)"  />
+    <div class="column is-4 pt-0 " v-for="badge  in badgesCompleted" :key="badge.id" >
+       <ElementBadge :badge="badge"     />
     </div>
   </div>
 </template>
@@ -19,11 +19,18 @@ export default class BadgesTab extends HasUserInfo {
   badges = [{
     id: 1,
     name: 'badge 1',
-    complete: false
+    completed: false
   }]
 
   badgeCompleted (badge:Badge): boolean {
     return this.currentUserInfo.badges ? this.currentUserInfo.badges.includes(badge.name) : false
+  }
+
+  get badgesCompleted (): any[] {
+    return this.badges.map(badge => {
+      badge.completed = this.currentUserInfo.badges ? this.currentUserInfo.badges.includes(badge.name) : false
+      return badge
+    })
   }
 }
 </script>
