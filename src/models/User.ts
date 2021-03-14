@@ -9,6 +9,7 @@ export class User extends RegisterRequest {
   country? = ''
   gender? = null
   socialLinks? = []
+  badges?:string[] = []
 }
 
 export default User
