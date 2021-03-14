@@ -9,7 +9,15 @@ export class Users {
   getUserByEmail (email:string):Promise<User> {
     const query = this.baseRef().where('email', '==', email)
     return query.get().then(snapshot => {
-      return snapshot.docs[0].data() as User
+      console.log(snapshot)
+      return { id: snapshot.docs[0].id, ...snapshot.docs[0].data() } as unknown as User
+    })
+  }
+
+  saveUser (user:User): Promise<User> {
+    const ref = this.baseRef().doc(user.id)
+    return ref.set(user).then(() => {
+      return user
     })
   }
 }
