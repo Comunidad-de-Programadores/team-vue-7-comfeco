@@ -3,13 +3,13 @@
           <div class="card-image">
             <figure class="image is-4by3">
               <img
-                src="https://bulma.io/images/placeholders/1280x960.png"
+                :src="event.imageUrl"
                 alt="Placeholder image"
               >
             </figure>
           </div>
           <div class="card-content">
-            <p class="title is-4">Community fest and code</p>
+            <p class="title is-4">{{event.name}}</p>
             <div class="content is-inline-flex ">
               <a
                 href="#"

@@ -23,6 +23,7 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import EventsTabCard from './EventsTabCard.vue'
+import { EVENTS } from '@/config/events'
 @Component({
   components: {
     EventsTabCard
