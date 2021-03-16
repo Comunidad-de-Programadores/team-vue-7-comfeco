@@ -1,36 +1,41 @@
-<template lang="HTML">
-  <div class="columns">
-    <div class="column">
-      <div class="block">
-    <div class="is-flex is-justify-content-space-between">
-        <h4 class="title is-4">
-          Eventos de tu interes
-        </h4>
-          <a href="" class="">
+<template >
+  <div class="columns is-flex-wrap-wrap">
+    <div class="column is-12">
+        <div class="is-flex is-justify-content-space-between">
+          <h4 class="title is-4">
+            Eventos de tu interes
+          </h4>
+          <a
+            href=""
+            class=""
+          >
             Ver más
           </a>
-    </div>
-    <div class="card">
-      <div class="card-image">
-        <figure class="image is-4by3">
-      <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-    </figure>
-      </div>
-      <div class="card-content">
-        <p class="title is-4">Community fest and code</p>
-        <div class="content is-inline-flex ">
-          <a href="#" class="button ">Abandonar</a>
-          <a href="#" class="button ml-3">Mas Informacion</a>
         </div>
+
+    </div>
+    <div class="column is-4" v-for="(event,index) in events" :key="index">
+      <EventsTabCard :event="event"/>
+    </div>
+
   </div>
-  </div>
-  </div>
-</div>
-</div>
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-@Component
-export default class EventsTab extends Vue {}
+import EventsTabCard from './EventsTabCard.vue'
+import { EVENTS } from '@/config/events'
+@Component({
+  components: {
+    EventsTabCard
+  }
+})
+export default class EventsTab extends Vue {
+  events = [
+    {
+      name: 'Evento 1',
+      description: 'Loremp ipsum etc blablab'
+    }
+  ]
+}
 </script>
 <style lang=""></style>
