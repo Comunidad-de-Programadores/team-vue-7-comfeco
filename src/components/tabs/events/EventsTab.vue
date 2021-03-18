@@ -30,12 +30,13 @@ import { EVENTS } from '@/config/events'
   }
 })
 export default class EventsTab extends Vue {
-  events = [
-    {
-      name: 'Evento 1',
-      description: 'Loremp ipsum etc blablab'
-    }
-  ]
+  events = EVENTS;
+  // events = [
+  //   {
+  //     name: 'Evento 1',
+  //     description: 'Loremp ipsum etc blablab'
+  //   }
+  // ]
 }
 </script>
 <style lang=""></style>
