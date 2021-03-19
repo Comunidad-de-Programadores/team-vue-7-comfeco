@@ -4,7 +4,7 @@
     <div class="badge-icon">
    <b-icon  style="margin:0px auto;"
    :type="badge.completed == true ? 'is-primary':''"
-                icon="account"
+                :icon="badge.icon"
                 size="is-small">
             </b-icon>
     </div>
