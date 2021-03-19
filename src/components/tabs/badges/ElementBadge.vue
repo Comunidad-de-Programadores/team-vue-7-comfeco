@@ -2,10 +2,16 @@
 <div class="card">
   <div class="card-image has-text-centered mt-5">
     <figure class="image is-128x128 is-inline-block">
+      <b-icon
+                pack="fas"
+                icon="user"
+                size="is-large" v-if="badge.completed==true">
+      </b-icon>
       <b-image
             src="https://bulma.io/images/placeholders/128x128.png"
             ratio="1by1"
             rounded=true
+            v-else
           ></b-image>
     </figure>
   </div>
@@ -14,16 +20,14 @@
       <p class="title is-5 mb-3 ">Descripcion </p>
       <div class="content">
           <span>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Phasellus nec iaculis mauris.
+              {{badge.description}}
           </span>
 
         <br >
         <hr>
         <p class="title is-5 mb-3 ">¿Como ganarla? </p>
          <span>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Phasellus nec iaculis mauris.
+               {{badge.howgetit}}
           </span>
       </div>
   </div>
