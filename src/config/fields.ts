@@ -6,7 +6,7 @@ export const BADGES = [
   {
     id: 1,
     name: 'Sociable',
-    completed: false,
+    completed: true,
     description: 'test description',
     howgetit: 'How can you get this badge'
   },
