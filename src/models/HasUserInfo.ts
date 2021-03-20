@@ -16,18 +16,6 @@ export default class HasUserInfo extends Vue {
    /**
    * Create method
    */
-<<<<<<< HEAD
-  created (): void {
-    firebaseAuth.onAuthStateChanged(async (user: any) => {
-      console.log(user)
-      if (user) {
-        this.currentUserInfo = await Users.getUserByEmail(user.email)
-        console.log(this.currentUserInfo)
-      }
-      console.log()
-    })
-  }
-=======
    created (): void {
      firebaseAuth.onAuthStateChanged(async (user: any) => {
        console.log('Method created0', user)
@@ -36,5 +24,4 @@ export default class HasUserInfo extends Vue {
        }
      })
    }
->>>>>>> feature/events-saved
 }
