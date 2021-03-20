@@ -8,7 +8,15 @@ export default class User extends RegisterRequest {
   birthDate = '';
   country?: {name:string, code:string}
   gender? = null
-  socialLinks? = []
+  socialLinks: {
+    [key: string]:string
+  } = {
+    facebook: '',
+    twitter: '',
+    github: '',
+    linkedin: ''
+  }
+
   badges?:string[] = []
   // events?: Event[] = []
 }

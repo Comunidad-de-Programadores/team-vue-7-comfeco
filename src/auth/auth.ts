@@ -1,13 +1,13 @@
 import { firebaseAuth, firebaseDB } from '@/firebase/firebaseapp'
 import { AuthRequest, RegisterRequest } from '@/models/AuthRequest'
-
+import firebase from 'firebase'
 export class Auth {
   /**
    * Log in a user
    * @param data
    */
-  login (data: AuthRequest):void {
-    console.log(data)
+  login (data: AuthRequest):Promise<any> {
+    return firebaseAuth.signInWithEmailAndPassword(data.email, data.password)
   }
 
   /**
@@ -52,6 +52,20 @@ export class Auth {
   }
 
   /**
+   *
+   * @returns
+   */
+  reaunthenticate (password:string):Promise<void> {
+    const user = this.getCurrentUser()
+
+    const credentials = firebase.auth.EmailAuthProvider.credential(
+      user.email,
+      password
+    )
+    return this.getCurrentUser().reauthenticateWithCredential(credentials)
+  }
+
+  /**
  * Seign out method
  */
   signOut () : Promise<void> {
@@ -63,6 +77,13 @@ export class Auth {
    */
   onAuthChange ():any {
     return firebaseAuth.onAuthStateChanged
+  }
+
+  /**
+   * Updates user password
+   */
+  updatePassword (password:string):Promise<void> | undefined {
+    return firebaseAuth.currentUser?.updatePassword(password)
   }
 }
 

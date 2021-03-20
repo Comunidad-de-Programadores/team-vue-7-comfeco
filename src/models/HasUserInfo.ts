@@ -20,7 +20,8 @@ export default class HasUserInfo extends Vue {
      firebaseAuth.onAuthStateChanged(async (user: any) => {
        console.log('Method created0', user)
        if (user) {
-         this.currentUserInfo = await Users.getUserByEmail(user.email)
+         const userData = await Users.getUserByEmail(user.email)
+         this.currentUserInfo = { ...this.currentUserInfo, ...userData }
        }
      })
    }

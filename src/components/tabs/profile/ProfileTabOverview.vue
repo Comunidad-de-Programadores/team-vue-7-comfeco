@@ -32,28 +32,16 @@
       </div>
       <div class="divider"></div>
       <div class="pt-4 is-flex is-justify-content-space-around">
-        <a href="#">
+        <a  v-for="(network,index) in userLinks" target="blank" :key='index' :href="urlByNetwork(network.name)+'/'+network.url">
           <b-icon
-          icon="facebook"
+          v-if="network!='' "
+          :icon="network.name"
           size="is-medium">
 
           </b-icon>
 
         </a>
-        <a href="#">
-           <b-icon
-          icon="twitter"
-          size="is-medium">
 
-          </b-icon>
-        </a>
-          <a href="#">
-           <b-icon
-          icon="github"
-          size="is-medium">
-
-          </b-icon>
-        </a>
       </div>
 
   </div>
@@ -84,6 +72,39 @@ export default class ProfileTabOverview extends Vue {
         this.currentUserInfo = await Users.getUserByEmail(user.email)
       }
     })
+  }
+
+  get userLinks () {
+    return Object.keys(this.currentUserInfo?.socialLinks ? this.currentUserInfo?.socialLinks : {}).map((key) => {
+      return {
+        name: key,
+        url: this.currentUserInfo?.socialLinks[key]
+      }
+    }
+    ).filter(x => x.url !== '')
+  }
+
+  urlByNetwork (name:string):string {
+    let url = ''
+    switch (name) {
+      case 'facebook': {
+        url = 'https://www.facebook.com/'
+        break
+      }
+      case 'twitter': {
+        url = 'https://www.twitter.com/'
+        break
+      }
+      case 'github': {
+        url = 'https://github.com/'
+        break
+      }
+      case 'linkedin': {
+        url = 'https://www.linkedin.com/'
+        break
+      }
+    }
+    return url
   }
 }
 </script>
