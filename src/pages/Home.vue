@@ -25,7 +25,7 @@
               <Clock :deadline="'Mar 15, 2021'" :speed="1000"/>
             </div>
           <!--### END Clock ### -->
-
+<PerfilHome />
         </div>
       </div>
     </section>
@@ -36,12 +36,14 @@ import { Component, Vue } from 'vue-property-decorator'
 import ContentCreatorsCarrousel from '@/components/home/ContentCreatorsCarrousel.vue'
 import SponsorCarrousel from '@/components/home/SponsorCarrousel.vue'
 import Clock from '@/components/home/Clock.vue'
+import PerfilHome from '@/components/home/PerfilHome.vue'
 
 @Component({
   components: {
     Clock,
     ContentCreatorsCarrousel,
-    SponsorCarrousel
+    SponsorCarrousel,
+    PerfilHome
   }
 })
 export default class Home extends Vue {
