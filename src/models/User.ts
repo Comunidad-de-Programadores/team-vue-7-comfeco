@@ -6,7 +6,7 @@ export class User extends RegisterRequest {
   speciality? = null
   bio? = null
   birthDate = '';
-  country? = ''
+  country?: {name:string, code:string}
   gender? = null
   socialLinks? = []
   badges?:string[] = []

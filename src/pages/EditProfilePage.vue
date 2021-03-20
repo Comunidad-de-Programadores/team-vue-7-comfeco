@@ -103,12 +103,12 @@
             <div class="column is-mobile is-one-third-desktop">
               <b-field label="País">
                <b-autocomplete
-                 v-model="countryName"
-                 open-on-focus
-                placeholder="e.g. Anne"
-                :data="filteredCountries"
-                field="name"
-                @select="setCountryTo($event)"
+                  v-model="countryName"
+                  open-on-focus
+                  placeholder="e.g. Anne"
+                  @select="setCountry($event)"
+                  :data="filteredCountries"
+                  field="name"
                 clearable
             >
             </b-autocomplete>
@@ -222,6 +222,7 @@
             <div class="column is-12">
               <b-field label="Biografía">
                 <b-input
+                v-model="currentUserInfo.bio"
                   type="textarea"
                   maxlength="100"
                 >
@@ -303,13 +304,14 @@ export default class EditProfilePage extends HasUserInfo {
     console.log(date)
   }
 
-  setCountryTo (country:{ name: string; code: string; }):void {
-    this.currentUserInfo.country = country.name
+  setCountry (country:{ name: string; code: string; }):void {
+    this.currentUserInfo.country = country
   }
 
   @Watch('currentUserInfo')
   onUserChange (val: User, oldVal: User):void {
     this.birthDate = val.birthDate ? new Date(val.birthDate) : new Date()
+    this.countryName = val.country ? val.country.name : ''
   }
 
   async onSubmit (): Promise<void> {
