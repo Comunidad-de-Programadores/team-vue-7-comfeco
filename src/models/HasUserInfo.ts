@@ -1,26 +1,27 @@
-import { Vue } from 'vue-property-decorator'
+import { Component, Vue } from 'vue-property-decorator'
 import { firebaseAuth } from '@/firebase/firebaseapp'
 import User from '@/models/User'
 import Users from '@/api/users'
 
-export class HasUserInfo extends Vue {
-  currentUserInfo = new User();
+@Component
+export default class HasUserInfo extends Vue {
+   currentUserInfo = new User();
 
-  get userAvatarImage (): string {
-    return this.currentUserInfo
-      ? `https://ui-avatars.com/api/?name=${this.currentUserInfo.nickName}`
-      : ''
-  }
+   get userAvatarImage (): string {
+     return this.currentUserInfo
+       ? `https://ui-avatars.com/api/?name=${this.currentUserInfo.nickName}`
+       : ''
+   }
 
-  /**
+   /**
    * Create method
    */
-  created (): void {
-    firebaseAuth.onAuthStateChanged(async (user: any) => {
-      console.log('USER IN COMPONENT', user)
-      if (user) {
-        this.currentUserInfo = await Users.getUserByEmail(user.email)
-      }
-    })
-  }
+   created (): void {
+     firebaseAuth.onAuthStateChanged(async (user: any) => {
+       console.log('Method created0', user)
+       if (user) {
+         this.currentUserInfo = await Users.getUserByEmail(user.email)
+       }
+     })
+   }
 }

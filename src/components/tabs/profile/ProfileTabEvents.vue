@@ -27,7 +27,9 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-@Component
+@Component({
+
+})
 export default class ProfileTabEvents extends Vue {
   // @Prop();
   image = 'http://via.placeholder.com/640x360';

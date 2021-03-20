@@ -1,5 +1,5 @@
 <template lang="">
-  <div class="box is-text-centered">
+  <div class="box is-text-centered" v-if="currentUserInfo">
     <div class="is-flex is-justify-content-flex-end mb-3">
       <router-link :to="{ name:'edit-profile'}" > Editar perfil </router-link>
     </div>
@@ -66,6 +66,14 @@ import Users from '@/api/users'
 import { Component, Vue } from 'vue-property-decorator'
 @Component
 export default class ProfileTabOverview extends Vue {
+  currentUserInfo: User | null = null;
+
+  get userAvatarImage (): string {
+    return this.currentUserInfo
+      ? `https://ui-avatars.com/api/?name=${this.currentUserInfo.nickName}`
+      : ''
+  }
+
   /**
    * Create method
    */

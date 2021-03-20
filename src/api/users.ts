@@ -1,5 +1,5 @@
 import { firebaseDB } from '@/firebase/firebaseapp'
-import { User } from '@/models/User'
+import User from '@/models/User'
 import firebase from 'firebase'
 export class Users {
   baseRef ():firebase.firestore.CollectionReference<firebase.firestore.DocumentData> {

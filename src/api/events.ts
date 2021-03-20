@@ -9,7 +9,7 @@ export class Events {
   saveEventsToUser (id:string, event:Event):Promise<Event> {
     const ref = this.baseRef().doc(id).collection('events')
     return new Promise<Event>((resolve, reject) => {
-      ref.add(event).then(() => {
+      ref.doc(event.id.toString()).set(event).then(() => {
         resolve(event)
       }).catch(error => {
         console.log(error)
