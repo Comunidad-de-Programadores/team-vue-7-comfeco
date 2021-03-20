@@ -72,6 +72,7 @@
             <div class="column is-mobile is-one-third-desktop">
               <b-field label="Genero">
                 <b-select
+                v-model="currentUserInfo.gender"
                   placeholder="Seleciona un genero"
                   expanded
                 >
@@ -89,6 +90,7 @@
             <div class="column is-mobile is-one-third-desktop">
               <b-field label="Feach de nacimiento">
                 <b-datepicker
+                v-model="userBirthDate"
                   placeholder="Click to select..."
                   icon="calendar-today"
                   trap-focus
@@ -248,6 +250,7 @@ import users from '@/api/users'
 })
 export default class EditProfilePage extends HasUserInfo {
   saving = false
+  userBirthDate = new Date();
   genders = [
     {
       name: 'Masculino',
@@ -271,13 +274,26 @@ export default class EditProfilePage extends HasUserInfo {
     super.created()
   }
 
+  setBirthDate (date:Date):void {
+    console.log(date)
+  }
+
   async onSubmit (): Promise<void> {
     this.saving = true
     try {
+      this.currentUserInfo.birthDate = this.userBirthDate.toString()
       this.currentUserInfo = await users.saveUser(this.currentUserInfo)
+      this.$buefy.toast.open({
+        message: 'Usuario actualizado',
+        type: 'is-success'
+      })
       this.saving = false
     } catch (e) {
       this.saving = false
+      this.$buefy.toast.open({
+        message: 'Usuario no pudo ser actualizado',
+        type: 'is-danger'
+      })
       console.error(e)
     }
     console.log('submited')

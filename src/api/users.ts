@@ -17,7 +17,7 @@ export class Users {
   saveUser (user:User): Promise<User> {
     const ref = this.baseRef().doc(user.id)
     return ref.set(user).then(() => {
-      return user
+      return { ...user } as User
     })
   }
 }

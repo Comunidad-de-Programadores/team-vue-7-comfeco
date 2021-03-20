@@ -5,7 +5,7 @@ export class User extends RegisterRequest {
   profileImageUrl? = ''
   speciality? = null
   bio? = null
-  birthDate? = ''
+  birthDate = '';
   country? = ''
   gender? = null
   socialLinks? = []
