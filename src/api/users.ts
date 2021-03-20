@@ -10,7 +10,7 @@ export class Users {
     const query = this.baseRef().where('email', '==', email)
     return query.get().then(snapshot => {
       console.log(snapshot)
-      return { id: snapshot.docs[0].id, ...snapshot.docs[0].data() } as unknown as User
+      return { id: snapshot.docs[0].id, ...snapshot.docs[0].data() } as User
     })
   }
 

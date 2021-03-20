@@ -88,27 +88,35 @@
             </div>
             <!--BIRTH DATE-->
             <div class="column is-mobile is-one-third-desktop">
-              <b-field label="Feach de nacimiento">
-                <b-datepicker
-                v-model="userBirthDate"
-                  placeholder="Click to select..."
-                  icon="calendar-today"
-                  trap-focus
-                >
-                </b-datepicker>
-              </b-field>
+             <b-field label="Select a date" grouped>
+            <b-datepicker locale="es-ES" v-model="birthDate" :mobile-native="false">
+                <template v-slot:trigger>
+                    <b-button
+                        icon-left="calendar-today"
+                        type="is-primary" />
+                </template>
+            </b-datepicker>
+            <b-input expanded readonly :value="userBirthDate" />
+        </b-field>
             </div>
             <!-- COUNTRY-->
             <div class="column is-mobile is-one-third-desktop">
               <b-field label="País">
-                <b-input type="text">
-
-                </b-input>
+               <b-autocomplete
+                 v-model="countryName"
+                 open-on-focus
+                placeholder="e.g. Anne"
+                :data="filteredCountries"
+                field="name"
+                @select="setCountryTo($event)"
+                clearable
+            >
+            </b-autocomplete>
               </b-field>
             </div>
             <div class="column is-12">
               <b-field label="Area de conocimiento">
-                <b-select expanded>
+                <b-select expanded v-model="currentUserInfo.speciality">
                   <option
                     v-for="area in areas"
                     :value="area"
@@ -242,15 +250,18 @@
 <script lang="ts">
 import { ValidationObserver, ValidationProvider } from 'vee-validate'
 import { HasUserInfo } from '@/models/HasUserInfo'
-import { Component } from 'vue-property-decorator'
+import { Component, Watch } from 'vue-property-decorator'
 import { AREAS } from '@/config/fields'
 import users from '@/api/users'
+import User from '@/models/User'
+import countriesJSON from '@/api/countries.json'
 @Component({
   components: { ValidationProvider, ValidationObserver }
 })
 export default class EditProfilePage extends HasUserInfo {
   saving = false
-  userBirthDate = new Date();
+  countryName = ''
+  birthDate = new Date();
   genders = [
     {
       name: 'Masculino',
@@ -266,6 +277,20 @@ export default class EditProfilePage extends HasUserInfo {
     }
   ];
 
+  get filteredCountries ():{ name: string; code: string; } [] {
+    return countriesJSON.filter(country => {
+      return (
+        country.name
+          .toString()
+          .toLowerCase()
+          .indexOf(this.countryName.toLowerCase()) >= 0)
+    })
+  }
+
+  get userBirthDate ():string {
+    return this.birthDate ? this.birthDate.toDateString() : ''
+  }
+
   get areas (): string[] {
     return AREAS
   }
@@ -278,10 +303,20 @@ export default class EditProfilePage extends HasUserInfo {
     console.log(date)
   }
 
+  setCountryTo (country:{ name: string; code: string; }):void {
+    this.currentUserInfo.country = country.name
+  }
+
+  @Watch('currentUserInfo')
+  onUserChange (val: User, oldVal: User):void {
+    this.birthDate = val.birthDate ? new Date(val.birthDate) : new Date()
+  }
+
   async onSubmit (): Promise<void> {
     this.saving = true
     try {
-      this.currentUserInfo.birthDate = this.userBirthDate.toString()
+      console.log(this.currentUserInfo)
+      this.currentUserInfo.birthDate = this.userBirthDate
       this.currentUserInfo = await users.saveUser(this.currentUserInfo)
       this.$buefy.toast.open({
         message: 'Usuario actualizado',

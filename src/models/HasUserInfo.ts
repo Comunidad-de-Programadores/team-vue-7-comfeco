@@ -20,7 +20,9 @@ export class HasUserInfo extends Vue {
       console.log(user)
       if (user) {
         this.currentUserInfo = await Users.getUserByEmail(user.email)
+        console.log(this.currentUserInfo)
       }
+      console.log()
     })
   }
 }
