@@ -7,8 +7,9 @@ export class Events {
   }
 
   saveEventsToUser (id:string, events:Event[]):void {
-    let ref = this.baseRef().doc(id).collection('events')
+    const ref = this.baseRef().doc(id).collection('events')
     for (const event in events) {
+      console.log(event)
       //
       // add event to collection
       // const newEvent = firebaseDB.ref.set(event)

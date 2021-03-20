@@ -27,7 +27,6 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import Events from '../../../config/events'
 @Component
 export default class ProfileTabEvents extends Vue {
   // @Prop();
