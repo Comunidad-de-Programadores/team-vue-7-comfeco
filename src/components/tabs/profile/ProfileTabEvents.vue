@@ -32,7 +32,7 @@ import Events from '../../../config/events'
 export default class ProfileTabEvents extends Vue {
   // @Prop();
   image = 'http://via.placeholder.com/640x360';
-  Events.saveEventsToUser()
+  // Events.saveEventsToUser()
 }
 </script>
 <style lang=""></style>

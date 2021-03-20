@@ -11,9 +11,9 @@ export class Events {
     for (const event in events) {
       //
       // add event to collection
-      const newEvent = firebaseDB.ref.set(event)
-      console.log('newEvent', newEvent)
-      return newEvent
+      // const newEvent = firebaseDB.ref.set(event)
+      // console.log('newEvent', newEvent)
+      // return newEvent
     }
   }
 }
