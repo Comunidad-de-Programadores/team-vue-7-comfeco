@@ -12,13 +12,14 @@
             <p class="title is-4">{{event.name}}</p>
             <div class="content is-inline-flex ">
               <a
-                href="#"
+                @click="sendingEventImage"
                 class="button "
               >Abandonar</a>
               <a
+                @click="sendingEventImage(event.imageUrl)"
                 href="#"
                 class="button ml-3"
-              >Mas Informacion</a>
+              >Unirme</a>
             </div>
           </div>
         </div>
@@ -28,6 +29,11 @@ import { Component, Vue, Prop } from 'vue-property-decorator'
 @Component
 export default class EventsTabCard extends Vue {
 @Prop() event:any;
+
+sendingEventImage (event:any):void{
+  const eventUrlImage: string = event
+  console.log('The "Unirme" button was pressed', eventUrlImage)
+}
 }
 </script>
 <style lang="scss">
