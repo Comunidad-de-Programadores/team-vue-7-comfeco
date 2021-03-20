@@ -15,7 +15,7 @@
 
     </div>
     <div class="column is-4" v-for="(event,index) in events" :key="index">
-      <EventsTabCard :event="event"/>
+      <EventsTabCard  @selected="setEventsToUser($event)" :event="event"/>
     </div>
 
   </div>
@@ -31,6 +31,10 @@ import { EVENTS } from '@/config/events'
 })
 export default class EventsTab extends Vue {
   events:any = EVENTS
+
+  setEventsToUser (event:Event):void {
+    console.log(event)
+  }
 }
 </script>
 <style lang=""></style>

@@ -1,5 +1,6 @@
 export const EVENTS = [
   {
+    id: 1,
     name: 'event 1',
     imageUrl: 'http://lorempixel.com/400/200'
   },
