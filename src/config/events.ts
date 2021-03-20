@@ -5,11 +5,11 @@ export const EVENTS = [
   },
   {
     name: 'event 2',
-    imageUrl: 'http://lorempixel.com/400/200'
+    imageUrl: 'http://via.placeholder.com/640x360'
   },
   {
     name: 'event 3',
-    imageUrl: 'http://lorempixel.com/400/200'
+    imageUrl: 'https://loremflickr.com/640/360'
   },
   {
     name: 'event 4',
@@ -22,5 +22,5 @@ export const EVENTS = [
   {
     name: 'event 6',
     imageUrl: 'http://lorempixel.com/400/200'
-  },
+  }
 ]
