@@ -27,7 +27,7 @@
       </div>
       <div class="columns">
         <div class="column is-one-fifth">
-
+          <GroupsTabCard/>
         </div>
       </div>
     </div>
@@ -38,7 +38,7 @@
 import { Vue, Component } from 'vue-property-decorator'
 import GroupsTabCard from '@/components/tabs/groups/GroupsTabCard'
 @Component({
-  components: GroupsTabCard
+  components: { GroupsTabCard }
 })
 export default class GroupsTab extends Vue {
 

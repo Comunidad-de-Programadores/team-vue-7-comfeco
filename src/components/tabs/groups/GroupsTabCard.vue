@@ -3,7 +3,7 @@
     <div class="card-header">
       <figure class="image is-4by3">
         <img
-          src="https://bulma.io/images/placeholders/1280x960.png"
+          src="https://via.placeholder.com/150"
           alt="Placeholder image"
         />
       </figure>
@@ -29,7 +29,7 @@
 </template>
 <script>
 import { Vue, Component } from 'vue-property-decorator'
-@Component({})
-export default class GroupsTab extends Vue {}
+@Component
+export default class GroupsTabCard extends Vue {}
 </script>
 <style lang=""></style>
