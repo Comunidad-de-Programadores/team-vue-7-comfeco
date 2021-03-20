@@ -17,7 +17,7 @@ export class HasUserInfo extends Vue {
    */
   created (): void {
     firebaseAuth.onAuthStateChanged(async (user: any) => {
-      console.log(user)
+      console.log('USER IN COMPONENT', user)
       if (user) {
         this.currentUserInfo = await Users.getUserByEmail(user.email)
       }

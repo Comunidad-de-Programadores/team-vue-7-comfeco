@@ -8,7 +8,7 @@
           <b-image
             :src="item.image"
             ratio="1by1"
-            rounded=true
+            rounded
           ></b-image>
         </figure>
       </div>

@@ -27,12 +27,24 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import Events from '../../../config/events'
 @Component
 export default class ProfileTabEvents extends Vue {
   // @Prop();
   image = 'http://via.placeholder.com/640x360';
-  Events.saveEventsToUser()
+
+  /**
+  * Create method
+  */
+  created ():void {
+    this.fetchUserEvents()
+  }
+
+  /**
+   * Fetch events that belongs to an user
+   */
+  fetchUserEvents () {
+    console.log('Events added')
+  }
 }
 </script>
 <style lang=""></style>

@@ -5,7 +5,7 @@
       <b-image
             src="https://bulma.io/images/placeholders/128x128.png"
             ratio="1by1"
-            rounded=true
+            rounded
           ></b-image>
     </figure>
   </div>

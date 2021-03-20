@@ -6,14 +6,16 @@ export class Events {
     return firebaseDB.collection('users')
   }
 
-  saveEventsToUser (id:string, events:Event[]):void {
-    let ref = this.baseRef().doc(id).collection('events')
-    for (const event in events) {
-      //
-      // add event to collection
-      const newEvent = firebaseDB.ref.set(event)
-      console.log('newEvent', newEvent)
-      return newEvent
-    }
+  saveEventsToUser (id:string, event:Event):Promise<Event> {
+    const ref = this.baseRef().doc(id).collection('events')
+    return new Promise<Event>((resolve, reject) => {
+      ref.add(event).then(() => {
+        resolve(event)
+      }).catch(error => {
+        console.log(error)
+        reject(error)
+      })
+    })
   }
 }
+export default new Events()

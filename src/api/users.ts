@@ -8,9 +8,14 @@ export class Users {
 
   getUserByEmail (email:string):Promise<User> {
     const query = this.baseRef().where('email', '==', email)
-    return query.get().then(snapshot => {
-      console.log(snapshot)
-      return { id: snapshot.docs[0].id, ...snapshot.docs[0].data() } as unknown as User
+    return new Promise((resolve, reject) => {
+      query.get().then(snapshot => {
+        console.log('USER', snapshot.docs.length)
+        console.log('USER', snapshot.docs[0].data())
+        resolve({ id: snapshot.docs[0].id, ...snapshot.docs[0].data() } as User)
+      }).catch(error => {
+        console.error(error)
+      })
     })
   }
 

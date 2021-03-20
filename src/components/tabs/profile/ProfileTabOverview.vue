@@ -7,7 +7,7 @@
     style="margin:0px auto;"
       class="image is-128x128 p-0 mb-4"
       :src="userAvatarImage"
-      lazy="true"
+      lazy
       rounded
       >
         <template #placeholder>
@@ -66,14 +66,6 @@ import Users from '@/api/users'
 import { Component, Vue } from 'vue-property-decorator'
 @Component
 export default class ProfileTabOverview extends Vue {
-  currentUserInfo: User | null = null;
-
-  get userAvatarImage (): string {
-    return this.currentUserInfo
-      ? `https://ui-avatars.com/api/?name=${this.currentUserInfo.nickName}`
-      : ''
-  }
-
   /**
    * Create method
    */
