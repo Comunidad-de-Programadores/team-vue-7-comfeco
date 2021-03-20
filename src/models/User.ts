@@ -1,6 +1,6 @@
 import { RegisterRequest } from './AuthRequest'
 
-export class User extends RegisterRequest {
+export default class User extends RegisterRequest {
   id = ''
   profileImageUrl? = ''
   speciality? = null
@@ -10,6 +10,5 @@ export class User extends RegisterRequest {
   gender? = null
   socialLinks? = []
   badges?:string[] = []
+  // events?: Event[] = []
 }
-
-export default User

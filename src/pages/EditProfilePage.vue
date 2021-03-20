@@ -32,7 +32,7 @@
       <ValidationObserver v-slot="{ invalid }">
         <form
           @submit.prevent="onSubmit"
-          v-if="currentUserInfo!=null"
+          v-if="currentUserInfo"
         >
           <div class="columns is-flex-wrap-wrap">
             <div class="column is-mobile is-half-desktop">
@@ -250,7 +250,7 @@
 </template>
 <script lang="ts">
 import { ValidationObserver, ValidationProvider } from 'vee-validate'
-import { HasUserInfo } from '@/models/HasUserInfo'
+import HasUserInfo from '@/models/HasUserInfo'
 import { Component, Watch } from 'vue-property-decorator'
 import { AREAS } from '@/config/fields'
 import users from '@/api/users'

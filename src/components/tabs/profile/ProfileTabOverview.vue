@@ -1,5 +1,5 @@
 <template lang="">
-  <div class="box is-text-centered">
+  <div class="box is-text-centered" v-if="currentUserInfo">
     <div class="is-flex is-justify-content-flex-end mb-3">
       <router-link :to="{ name:'edit-profile'}" > Editar perfil </router-link>
     </div>
@@ -7,7 +7,7 @@
     style="margin:0px auto;"
       class="image is-128x128 p-0 mb-4"
       :src="userAvatarImage"
-      lazy="true"
+      lazy
       rounded
       >
         <template #placeholder>

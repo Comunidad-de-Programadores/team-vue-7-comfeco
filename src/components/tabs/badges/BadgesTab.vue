@@ -7,7 +7,7 @@
 </template>
 <script lang="ts">
 import { Badge } from '@/models/Badge'
-import { HasUserInfo } from '@/models/HasUserInfo'
+import HasUserInfo from '@/models/HasUserInfo'
 import { Component } from 'vue-property-decorator'
 import ElementBadge from './ElementBadge.vue'
 @Component({
@@ -23,12 +23,12 @@ export default class BadgesTab extends HasUserInfo {
   }]
 
   badgeCompleted (badge:Badge): boolean {
-    return this.currentUserInfo.badges ? this.currentUserInfo.badges.includes(badge.name) : false
+    return this.currentUserInfo && this.currentUserInfo.badges ? this.currentUserInfo.badges.includes(badge.name) : false
   }
 
   get badgesCompleted (): any[] {
     return this.badges.map(badge => {
-      badge.completed = this.currentUserInfo.badges ? this.currentUserInfo.badges.includes(badge.name) : false
+      badge.completed = this.currentUserInfo && this.currentUserInfo.badges ? this.currentUserInfo.badges.includes(badge.name) : false
       return badge
     })
   }
