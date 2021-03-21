@@ -19,7 +19,7 @@
         <p class="title is-4">{{event.name}}</p>
       </div>
       <div class="card-footer p-4 has-flex-wrap-wrap">
-        <a href="#" class="button ">Abandonar</a>
+        <button class="button " @click="deleteEvent(event)">Abandonar</button>
         <a href="#" class="button ml-3">Mas Informacion</a>
       </div>
     </div>
@@ -51,6 +51,12 @@ export default class ProfileTabEvents extends HasUserInfo {
   fetchUserEvents () {
     Events.getEventsForUser(this.currentUserInfo.id).then(events => {
       this.events = events
+    })
+  }
+
+  deleteEvent (event:any) {
+    Events.delete(this.currentUserInfo.id.toString(), event.id.toString()).then(() => {
+      this.fetchUserEvents()
     })
   }
 }

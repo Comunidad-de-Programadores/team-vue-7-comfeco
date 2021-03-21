@@ -26,5 +26,9 @@ export class Events {
       })
     })
   }
+
+  delete (userID:string, eventId:string) {
+    return this.baseRef().doc(userID).collection('events').doc(eventId).delete()
+  }
 }
 export default new Events()
