@@ -1,0 +1,13 @@
+[debug] [2021-03-21T04:53:14.316Z] ----------------------------------------------------------------------
+[debug] [2021-03-21T04:53:14.318Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Hanie\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2021-03-21T04:53:14.318Z] CLI Version:   8.14.1
+[debug] [2021-03-21T04:53:14.318Z] Platform:      win32
+[debug] [2021-03-21T04:53:14.318Z] Node Version:  v14.15.4
+[debug] [2021-03-21T04:53:14.319Z] Time:          Sat Mar 20 2021 22:53:14 GMT-0600 (hora estándar central)
+[debug] [2021-03-21T04:53:14.319Z] ----------------------------------------------------------------------
+[debug] [2021-03-21T04:53:14.319Z] 
+[debug] [2021-03-21T04:53:14.324Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-03-21T04:53:14.324Z] > authorizing via signed-in user
+[debug] [2021-03-21T04:53:14.324Z] [iam] checking project team-vue-7-comfeco for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2021-03-21T04:53:14.327Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/team-vue-7-comfeco:testIamPermissions  
+ {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}

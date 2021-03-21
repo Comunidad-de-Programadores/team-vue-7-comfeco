@@ -2,16 +2,16 @@
   <b-navbar :fixed-top="true" centered spaced>
     <template #brand>
       <b-navbar-item
-        class="is-size-4 has-text-link has-text-weight-bold"
+        class="is-size-4 has-text-primary has-text-weight-bold"
         tag="router-link"
         :to="{ path: '/' }"
       >
-        Eventer
+        Comfeco
       </b-navbar-item>
     </template>
     <template v-slot:start>
       <b-navbar-item
-        href=""
+        href="/"
         tag="a"
         active
       >
@@ -108,12 +108,12 @@
       <b-navbar-item @click="$i18n.locale = 'es'">
         Español
       </b-navbar-item>
-      <b-navbar-item
+      <!--b-navbar-item
         href="#"
         @click="$i18n.locale = 'en'"
       >
         English
-      </b-navbar-item>
+      </b-navbar-item-->
     </b-navbar-dropdown>
   </div>
 </template>
