@@ -2,13 +2,13 @@
 
     <section class="hero is-fullheight-with-navbar">
       <div class="hero-body">
-        <div class="container is-max-wide-screen  has-text-centered">
-          <div class="columns">
-            <div class="column is-3">
+        <div class=" is-max-wide-screen  has-text-centered">
+          <div class="columns is-flex-wrap-wrap">
+            <div class="column is-12-mobile is-3-tablet">
             <Comunities />
 
             </div>
-              <div class="column is-9">
+              <div class=" column is-12-mobile is-6-tablet">
 
           <p class="subtitle is-4">Bienvenido a </p>
           <p class="title is-1 has-text-weight-bold">

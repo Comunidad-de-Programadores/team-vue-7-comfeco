@@ -59,8 +59,10 @@ export default class ProfileTabEvents extends HasUserInfo {
 
 @media (min-width: 769px) {
   .events-container{
+    border-radius: 6px;
     max-height: 60vh;
     overflow-y: auto;
+    background: white;
     box-shadow:  0 0.5em 1em -0.125em rgba(10, 10, 10,  10%), 0 0 0 0px rgba(10, 10 ,10,  2%);
   }
 
