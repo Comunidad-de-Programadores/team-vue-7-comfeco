@@ -17,6 +17,6 @@ export default class User extends RegisterRequest {
     linkedin: ''
   }
 
-  badges?:string[] = []
+  badges:string[] = []
   // events?: Event[] = []
 }

@@ -246,6 +246,7 @@ import users from '@/api/users'
 import User from '@/models/User'
 import Auth from '@/auth/auth'
 import countriesJSON from '@/api/countries.json'
+import { email } from 'node_modules/vee-validate/dist/rules'
 @Component({
   components: { ValidationProvider, ValidationObserver }
 })
@@ -348,9 +349,34 @@ export default class EditProfilePage extends HasUserInfo {
     })
   }
 
+  isProfileFilled (): boolean {
+    if (this.currentUserInfo) {
+      const emailFilled = this.currentUserInfo.email !== ''
+      const nickeNameFilled = this.currentUserInfo.nickName !== ''
+      const genderFilled = this.currentUserInfo.gender !== null
+      const birthDayFilled = this.currentUserInfo.birthDate !== new Date().toDateString()
+      const contryFilled = !!this.currentUserInfo.country
+      const specialityFilled = this.currentUserInfo.speciality !== null
+      const linksFilled = this.currentUserInfo.socialLinks.facebook !== '' && this.currentUserInfo.socialLinks.twitter !== '' && this.currentUserInfo.socialLinks.linkedin !== '' && this.currentUserInfo.socialLinks.github !== ''
+      const bioFilled = this.currentUserInfo.bio != null
+
+      console.log(emailFilled, nickeNameFilled, genderFilled, birthDayFilled, contryFilled, specialityFilled, linksFilled, bioFilled)
+      return emailFilled && nickeNameFilled && genderFilled && birthDayFilled && contryFilled && specialityFilled && linksFilled && bioFilled
+    } else {
+      return false
+    }
+  }
+
   async updateUser (): Promise<void> {
     try {
-      console.log(this.currentUserInfo)
+      console.log(this.isProfileFilled())
+      if (this.isProfileFilled()) {
+        const hasBadge = this.currentUserInfo.badges.indexOf('Sociable')
+        if (hasBadge === -1) {
+          console.log('pasó', hasBadge)
+          this.currentUserInfo.badges.push('Sociable')
+        }
+      }
 
       this.currentUserInfo.birthDate = this.userBirthDate
       this.currentUserInfo = await users.saveUser(this.currentUserInfo)

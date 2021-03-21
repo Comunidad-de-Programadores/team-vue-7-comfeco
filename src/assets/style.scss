@@ -11,8 +11,14 @@ $primary: #69156a;
 $primary-light: findLightColor($primary);
 $primary-dark: findDarkColor($primary);
 $primary-invert: findColorInvert($primary);
+
 $twitter: #4099FF;
 $twitter-invert: findColorInvert($twitter);
+
+$yellow: rgba(241, 180, 6, 0.8);
+$yellow-light: findLightColor($yellow);
+$yellow-dark: findDarkColor($yellow);
+$yellow-invert: findColorInvert($yellow);
 
 // Lists and maps
 $custom-colors: null !default;
@@ -21,6 +27,12 @@ $custom-shades: null !default;
 // Setup $colors to use as bulma classes (e.g. 'is-twitter')
 $colors: mergeColorMaps(
     (
+        'yellow':  (
+            $yellow,
+            $yellow-light,
+            $yellow-dark,
+            $yellow-invert
+            ),
         "white": (
             $white,
             $black,

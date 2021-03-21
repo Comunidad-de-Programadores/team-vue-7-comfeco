@@ -1,29 +1,28 @@
 <template lang="HTML">
 <div class="card">
   <div class="card-image has-text-centered mt-5">
-    <figure class="image is-128x128 is-inline-block">
-      <b-image
-            src="https://bulma.io/images/placeholders/128x128.png"
-            ratio="1by1"
-            rounded
-          ></b-image>
-    </figure>
+    <div  :class="{'has-background-yellow' : badge.completed }"  class="badge-icon">
+   <b-icon  style="margin:0px auto;"
+   :type="badge.completed ? 'is-primary':''"
+                :icon="badge.icon"
+                size="is-small">
+            </b-icon>
+    </div>
+
   </div>
     <div class="card-content has-text-centered" v-if="badge">
       <p class="title is-3 mb-4 ">{{badge.name}} </p>
       <p class="title is-5 mb-3 ">Descripcion </p>
       <div class="content">
           <span>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Phasellus nec iaculis mauris.
+              {{badge.description}}
           </span>
 
         <br >
         <hr>
         <p class="title is-5 mb-3 ">¿Como ganarla? </p>
          <span>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Phasellus nec iaculis mauris.
+               {{badge.howgetit}}
           </span>
       </div>
   </div>
@@ -34,7 +33,24 @@ import { Vue, Component, Prop } from 'vue-property-decorator'
 import { Badge } from '@/models/Badge'
 @Component({})
 export default class ElementBadge extends Vue {
-   @Prop() badge!: Badge
+  @Prop() badge!: Badge;
 }
 </script>
-<style lang=""></style>
+<style lang="scss">
+.badge-icon{
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+  margin: 0px auto;
+  display: flex;
+  background: rgba($color: #000000, $alpha: 0.12);
+  justify-content: center;
+  align-items: center;
+    .icon {
+        i::before{
+      font-size: 72px;
+    }
+  }
+
+}
+</style>
