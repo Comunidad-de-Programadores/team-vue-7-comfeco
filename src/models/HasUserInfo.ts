@@ -17,12 +17,18 @@ export default class HasUserInfo extends Vue {
    * Create method
    */
    created (): void {
-     firebaseAuth.onAuthStateChanged(async (user: any) => {
-       console.log('Method created0', user)
-       if (user) {
-         const userData = await Users.getUserByEmail(user.email)
-         this.currentUserInfo = { ...this.currentUserInfo, ...userData }
-       }
+     this.fetchCurrentUser()
+   }
+
+   async fetchCurrentUser (): Promise<User> {
+     return new Promise((resolve, reject) => {
+       firebaseAuth.onAuthStateChanged(async (user: any) => {
+         if (user) {
+           const userData = await Users.getUserByEmail(user.email)
+           this.currentUserInfo = { ...this.currentUserInfo, ...userData }
+           resolve(this.currentUserInfo)
+         }
+       })
      })
    }
 }

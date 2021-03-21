@@ -9,11 +9,9 @@ export class Events {
   getEventsForUser (userId:string):Promise<Event[]> {
     const ref = this.baseRef().doc(userId).collection('events')
     return ref.get().then((snapshot) => {
-      const events:Event[] = []
-      snapshot.forEach(doc => {
-        events.push({ ...doc.data() } as Event)
+      return snapshot.docs.map(doc => {
+        return { ...doc.data() } as Event
       })
-      return events
     })
   }
 

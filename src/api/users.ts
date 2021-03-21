@@ -10,8 +10,6 @@ export class Users {
     const query = this.baseRef().where('email', '==', email)
     return new Promise((resolve, reject) => {
       query.get().then(snapshot => {
-        console.log('USER', snapshot.docs.length)
-        console.log('USER', snapshot.docs[0].data())
         resolve({ id: snapshot.docs[0].id, ...snapshot.docs[0].data() } as User)
       }).catch(error => {
         console.error(error)

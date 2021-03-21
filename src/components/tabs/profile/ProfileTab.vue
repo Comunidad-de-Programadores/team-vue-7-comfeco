@@ -1,22 +1,20 @@
 <template lang="">
   <div class="columns pt-6">
-    <div class="column is-3 pt-0">
+    <div class="column is-12-mobile is-3-tablet pt-0">
         <!--PROFILE OVERVIEW GOES HERE-->
        <ProfileTabOverview />
         <!--END OF PROFILE OVERVIEW-->
     </div>
-    <div class="column is-6 ">
+    <div class="column is-12-mobile is-6-tablet">
       <!--RECENT ACTIVITY  GOES HERE-->
       <Badges />
       <RecentActivities />
       <!--END OF RECENT ACTIVITY-->
     </div>
-    <div class="column is-3 pt-0">
-      <div class="box">
+    <div class="column is-12-mobile is-3-tablet">
         <!--EVENTS  GOES HERE-->
         <ProfileTabEvents />
         <!--END OF EVENTS-->
-      </div>
     </div>
   </div>
 </template>
