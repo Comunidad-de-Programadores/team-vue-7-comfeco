@@ -22,10 +22,10 @@
 
           <!--### Clock ### -->
             <div class="py-6">
-              <Clock :deadline="'Mar 15, 2021'" :speed="1000"/>
+              <Clock :deadline="'May 15, 2021'" :speed="1000"/>
             </div>
           <!--### END Clock ### -->
-<PerfilHome />
+            <Comunities />
         </div>
       </div>
     </section>
@@ -37,13 +37,15 @@ import ContentCreatorsCarrousel from '@/components/home/ContentCreatorsCarrousel
 import SponsorCarrousel from '@/components/home/SponsorCarrousel.vue'
 import Clock from '@/components/home/Clock.vue'
 import PerfilHome from '@/components/home/PerfilHome.vue'
+import Comunities from '@/components/home/Comunities.vue'
 
 @Component({
   components: {
     Clock,
     ContentCreatorsCarrousel,
     SponsorCarrousel,
-    PerfilHome
+    PerfilHome,
+    Comunities
   }
 })
 export default class Home extends Vue {

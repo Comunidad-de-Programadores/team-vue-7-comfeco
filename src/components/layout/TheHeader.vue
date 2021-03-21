@@ -1,9 +1,5 @@
 <template >
-  <b-navbar
-    :fixed-top="true"
-    centered
-    spaced
-  >
+  <b-navbar :fixed-top="true" centered spaced>
     <template #brand>
       <b-navbar-item
         class="is-size-4 has-text-link has-text-weight-bold"
