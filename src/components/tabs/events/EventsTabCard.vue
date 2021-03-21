@@ -12,7 +12,7 @@
         <a
           @click="selected(event)"
           href="#"
-          class="button ml-3"
+          class="button is-primary ml-3"
           >Unirme</a
         >
       </div>

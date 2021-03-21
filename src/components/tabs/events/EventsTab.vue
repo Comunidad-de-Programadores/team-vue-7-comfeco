@@ -40,8 +40,14 @@ export default class EventsTab extends mixins(HasUserInfo) {
     if (!this.currentUserInfo) {
       return
     }
-    EventsAPI.saveEventsToUser(this.currentUserInfo.id, event).then((event) => {
+    EventsAPI.saveEventsToUser(this.currentUserInfo.id, event).then((event): void => {
       console.log('Event Saved', event)
+      this.$buefy.toast.open(
+        {
+          message: `Te has unido al evento ${event.name}`,
+          type: 'is-success'
+        }
+      )
     }).catch(e => { console.error(e) })
   }
 }

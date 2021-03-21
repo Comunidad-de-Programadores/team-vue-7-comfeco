@@ -1,9 +1,9 @@
 <template lang="HTML">
 <div class="card">
   <div class="card-image has-text-centered mt-5">
-    <div  :class="{'has-background-yellow' : badge.completed }"  class="badge-icon">
+    <div  :class="{'has-background-yellow' : badge.completed ===true }"  class="badge-icon">
    <b-icon  style="margin:0px auto;"
-   :type="badge.completed ? 'is-primary':''"
+   :type="badge.completed ==true ? 'is-primary' :''"
                 :icon="badge.icon"
                 size="is-small">
             </b-icon>

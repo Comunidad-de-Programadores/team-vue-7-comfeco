@@ -6,6 +6,17 @@ export class Events {
     return firebaseDB.collection('users')
   }
 
+  getEventsForUser (userId:string):Promise<Event[]> {
+    const ref = this.baseRef().doc(userId).collection('events')
+    return ref.get().then((snapshot) => {
+      const events:Event[] = []
+      snapshot.forEach(doc => {
+        events.push({ ...doc.data() } as Event)
+      })
+      return events
+    })
+  }
+
   saveEventsToUser (id:string, event:Event):Promise<Event> {
     const ref = this.baseRef().doc(id).collection('events')
     return new Promise<Event>((resolve, reject) => {
