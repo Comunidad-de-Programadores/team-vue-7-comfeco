@@ -9,9 +9,9 @@
           </a>
     </div>
 
-            <div class="is-flex is-justify-content-space-between is-align-items-center " v-for="(item,index) in comunities " :key="index">
-              <div class="is-flex   is-align-items-center">
-                <figure class="image is-64x64">
+            <div class="is-flex mb-4 is-justify-content-space-between is-align-items-center " v-for="(item,index) in comunities " :key="index">
+              <div class="is-flex is-align-items-center">
+                <figure class="image mb-0 is-64x64 mr-4">
                   <img src='https://bulma.io/images/placeholders/128x128.png' alt="Image" >
                 </figure>
                 <p class="is-4 mb-0">
