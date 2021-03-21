@@ -1,4 +1,4 @@
-<template lang="html">
+<template >
   <b-navbar :fixed-top="true" centered spaced>
     <template #brand>
       <b-navbar-item
