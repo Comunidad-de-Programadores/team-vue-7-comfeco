@@ -1,7 +1,7 @@
 # team-vue-7-comfeco
 
 ## URL de la web 
-See [Configuration Reference](https://team-vue-7-comfeco.web.app/).
+Puede ver web em esta  [url](https://team-vue-7-comfeco.web.app/).
 
 ## 
 ## Project setup
