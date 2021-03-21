@@ -12,14 +12,14 @@ import GroupsAPI from '@/api/Groups'
 @Component
 export default class FillGroupPage extends Vue {
   created () {
-    GroupsAPI.getGroups().then((groups) => {
+    /* GroupsAPI.getGroups().then((groups) => {
       groups.forEach(async (group) => {
         console.log('addin group', group)
         await GroupsAPI.getUsersGroups(group.id.toString()).then(users => {
           GroupsAPI.addGroup(group, users)
         })
       })
-    })
+    }) */
   }
 }
 </script>

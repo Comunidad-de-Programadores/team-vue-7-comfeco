@@ -2,7 +2,14 @@
 
     <section class="hero is-fullheight-with-navbar">
       <div class="hero-body">
-        <div class="container is-max-widescreen has-text-centered">
+        <div class="container  has-text-centered">
+          <div class="columns">
+            <div class="column is-3">
+            <Comunities />
+
+            </div>
+              <div class="column is-6">
+
           <p class="subtitle is-4">Bienvenido a </p>
           <p class="title is-1 has-text-weight-bold">
             Comunity Fest and code
@@ -25,8 +32,11 @@
               <Clock :deadline="'May 15, 2021'" :speed="1000"/>
             </div>
           <!--### END Clock ### -->
-            <Comunities />
         </div>
+
+            </div>
+
+          </div>
       </div>
     </section>
 </template>

@@ -18,16 +18,14 @@ export class GroupsAPI {
     })
   }
 
-  getGroups ():Promise<Group[]> {
+  /* getGroups ():Promise<any[]> {
     /* return axios.get('https://604961d0fb5dcc0017969e01.mockapi.io/api/groups').then(response => (response.data as Group[])) */
-    return this.getRef().get().then(snapshot=>{
-      let groups = []
-      snapshot.docs.map(doc=>{
-        return {doc.}
-      })
-      return  groups
+  /* return this.getRef().get().then(snapshot => {
+      const groups = []
+
+      return groups
     })
-  }
+  } */
 
   getUsersGroups (grouId:string): Promise<{
     id:string,
