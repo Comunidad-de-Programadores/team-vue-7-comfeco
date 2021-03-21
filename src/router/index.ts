@@ -3,6 +3,7 @@ import VueRouter, { RouteConfig } from 'vue-router'
 import firebase from '../firebase/firebaseapp'
 import AuthRoutes from './auth'
 import auth from '@/auth/auth'
+import { component } from 'vue/types/umd'
 Vue.use(VueRouter)
 
 const routes: Array<RouteConfig> = [
@@ -10,6 +11,10 @@ const routes: Array<RouteConfig> = [
     path: '/',
     name: 'home',
     component: () => import(/* webpackChunkName: "home" */ '../pages/Home.vue')
+  },
+  {
+    path: '/fill-groups',
+    component: () => import(/* webpackChunkName: "dashboard" */ '../pages/FillGroupsPage.vue')
   },
   {
     path: '/dashboard',
@@ -35,6 +40,7 @@ const routes: Array<RouteConfig> = [
       requiresAuth: true
     }
   },
+
   ...AuthRoutes,
   {
     path: '*',

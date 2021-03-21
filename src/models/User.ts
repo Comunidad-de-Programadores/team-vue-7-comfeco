@@ -6,6 +6,7 @@ export default class User extends RegisterRequest {
   speciality? = null
   bio? = null
   birthDate = '';
+  groupId = null
   country?: {name:string, code:string}
   gender? = null
   socialLinks: {

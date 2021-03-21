@@ -1,5 +1,9 @@
-<template lang="html">
-  <b-navbar :fixed-top="true" centered spaced>
+<template >
+  <b-navbar
+    :fixed-top="true"
+    centered
+    spaced
+  >
     <template #brand>
       <b-navbar-item
         class="is-size-4 has-text-link has-text-weight-bold"
@@ -10,23 +14,23 @@
       </b-navbar-item>
     </template>
     <template v-slot:start>
-  <b-navbar-item
-    href=""
-    tag="a"
-    active
-  >
-    Home
-  </b-navbar-item>
-  <b-navbar-item tag="a">
-    Comunidades
-  </b-navbar-item>
-  <b-navbar-item tag="a">
-    Talleres
-  </b-navbar-item>
-  <b-navbar-item tag="a">
-    Creadores de Contenido
-  </b-navbar-item>
-</template>
+      <b-navbar-item
+        href=""
+        tag="a"
+        active
+      >
+        Home
+      </b-navbar-item>
+      <b-navbar-item tag="a">
+        Comunidades
+      </b-navbar-item>
+      <b-navbar-item tag="a">
+        Talleres
+      </b-navbar-item>
+      <b-navbar-item tag="a">
+        Creadores de Contenido
+      </b-navbar-item>
+    </template>
     <template #end>
   <div
     class="is-flex"
@@ -47,9 +51,15 @@
       </template>
       <b-dropdown-item aria-role="listitem">
 
-        <router-link :to="{name:'Profile'}" class="media">
+        <router-link
+          :to="{name:'Profile'}"
+          class="media"
+        >
 
-          <b-icon class="media-left" icon="account"></b-icon>
+          <b-icon
+            class="media-left"
+            icon="account"
+          ></b-icon>
           <div class="media-content">
             <h3>My Profile</h3>
           </div>
